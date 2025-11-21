@@ -7,6 +7,7 @@
     
     <title id="page-title">Achei Barato - Comunidade Oficial</title>
     <meta name="description" content="Comunidade exclusiva de ofertas. Encontre bugs de preço, promoções e cupons de até 80% OFF na Shopee e Mercado Livre.">
+    <meta name="theme-color" content="#16a34a">
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="Convite: Grupo VIP Achei Barato">
@@ -21,10 +22,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 3. DESIGN SYSTEM (CSS Variables & Reset) --- */
+        /* [21-30] DESIGN SYSTEM (Variáveis e UX) */
         :root {
             --color-primary: #2563eb;
-            --color-primary-dark: #1d4ed8;
             --color-success: #16a34a;
             --color-success-light: #dcfce7;
             --color-bg: #f8fafc;
@@ -34,12 +34,11 @@
             --color-danger: #dc2626;
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-glow: 0 0 15px rgba(37, 99, 235, 0.15);
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-            --radius-md: 16px;
             --radius-lg: 24px;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif; /* Fallback Fonts */
         }
 
+        /* Reset Moderno */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         html { scroll-behavior: smooth; }
@@ -51,21 +50,20 @@
             font-family: var(--font-main);
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh; color: var(--color-text);
-            padding: 0 16px 100px 16px; /* Espaço para sticky button */
-            antialiased;
-            overflow-x: hidden;
+            padding: 0 16px 100px 16px; 
+            antialiased; overflow-x: hidden;
         }
 
-        /* --- TIMER PERSISTENTE --- */
+        /* Timer */
         .timer-bar {
             background: #fffbeb; color: #92400e; width: 100%; text-align: center; 
             padding: 10px; font-size: 12px; font-weight: 700; 
             border-bottom: 1px solid #fcd34d; position: fixed; top: 0; left: 0; 
             z-index: 999; box-shadow: var(--shadow-sm); letter-spacing: 0.5px;
         }
-        .timer-bar span { color: #b45309; font-weight: 900; font-family: monospace; font-size: 13px; }
+        .timer-bar span { color: #b45309; font-weight: 900; font-family: monospace; font-size: 14px; }
 
-        /* --- CONTAINER CENTRALIZADO --- */
+        /* Container */
         .container {
             background: var(--color-white); width: 100%; max-width: 440px; 
             padding: 32px 24px; border-radius: var(--radius-lg); 
@@ -74,7 +72,7 @@
             border: 1px solid rgba(255,255,255,0.8);
         }
 
-        /* --- HEADER & GEO --- */
+        /* Header & Geo */
         .header-info { 
             display: flex; justify-content: space-between; align-items: center; 
             width: 100%; margin-bottom: 24px; font-size: 11px; 
@@ -90,13 +88,13 @@
             transition: all 0.3s ease; animation: pulse-border 2s infinite;
         }
 
-        /* Estilos da Roleta de Cidades */
+        /* Estilos da Roleta */
         .style-alert { background: #fff7ed; color: #c2410c; border: 1px solid #fdba74; }
         .style-urgent { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
         .style-success { background: #f0fdf4; color: #15803d; border: 1px solid #86efac; }
         .style-vip { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
 
-        /* --- LOGO & HEADLINE --- */
+        /* Logo */
         .logo-area { margin-bottom: 20px; position: relative; display: inline-block; }
         .logo-img { 
             width: 110px; height: 110px; border-radius: 50%; object-fit: cover; 
@@ -113,20 +111,18 @@
         h1 span { color: var(--color-primary); }
         p.subheadline { color: #475569; font-size: 15px; line-height: 1.5; margin-bottom: 24px; font-weight: 500; }
 
-        /* --- TRUST BADGES (NOVO: BLOCO DE CONFIANÇA) --- */
-        .trust-badges { 
-            display: flex; justify-content: space-between; gap: 8px; margin-bottom: 28px; 
-        }
+        /* Trust Badges */
+        .trust-badges { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 28px; }
         .trust-item { 
-            background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 12px; 
+            background: var(--color-bg); border: 1px solid #e2e8f0; border-radius: 12px; 
             padding: 12px 4px; width: 32%; text-align: center; 
             display: flex; flex-direction: column; align-items: center; 
         }
-        .trust-icon { font-size: 22px; margin-bottom: 6px; }
-        .trust-text h4 { font-size: 10px; font-weight: 900; color: var(--color-text); margin-bottom: 2px; text-transform: uppercase; }
-        .trust-text p { font-size: 9px; color: var(--color-text-light); line-height: 1.2; font-weight: 500; }
+        .trust-icon { font-size: 20px; margin-bottom: 6px; }
+        .trust-text h4 { font-size: 10px; font-weight: 800; color: var(--color-text); margin-bottom: 2px; text-transform: uppercase; }
+        .trust-text p { font-size: 9px; color: var(--color-text-light); line-height: 1.2; font-weight: 600; }
 
-        /* --- CARROSSEL INFINITO --- */
+        /* Carrossel Otimizado */
         .carousel-container { width: 100%; overflow: hidden; margin-bottom: 28px; padding: 5px 0; -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
         .carousel-track { display: flex; width: calc(130px * 14); animation: scroll 30s linear infinite; will-change: transform; }
         .carousel-item { 
@@ -146,9 +142,9 @@
             border-radius: 4px; box-shadow: var(--shadow-sm); text-transform: uppercase; 
         }
 
-        /* --- STATUS BOX (Sistema) --- */
+        /* Status Box */
         .status-box { 
-            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: var(--radius-md); 
+            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; 
             padding: 16px; margin-bottom: 24px; text-align: left; 
         }
         .group-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 13px; color: var(--color-text-light); font-weight: 500; }
@@ -161,7 +157,7 @@
             animation: pulse 2s infinite; 
         }
 
-        /* --- AUTHOR BOX (Stories) --- */
+        /* Author Box */
         .author-box { 
             display: flex; align-items: center; background: #fff1f2; 
             padding: 16px; border-radius: 16px; margin-bottom: 24px; 
@@ -169,7 +165,7 @@
         }
         .author-img-wrapper {
             position: relative; width: 54px; height: 54px; flex-shrink: 0;
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram colors */
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
             border-radius: 50%; padding: 2px;
         }
         .author-img { 
@@ -179,7 +175,7 @@
         .author-text h3 { font-size: 15px; font-weight: 800; color: #9f1239; margin-bottom: 4px; }
         .author-text p { font-size: 12px; color: #881337; line-height: 1.4; margin: 0; }
 
-        /* --- BOTÕES CTA --- */
+        /* Botões */
         .bonus-text { margin-bottom: 12px; font-size: 13px; color: var(--color-primary); font-weight: 700; letter-spacing: -0.3px; }
         
         .btn-whatsapp { 
@@ -205,7 +201,7 @@
         }
         .btn-telegram:hover { border-color: #3b82f6; }
 
-        /* --- FAQ (Details/Summary) --- */
+        /* FAQ */
         .faq-section { margin-top: 32px; text-align: left; width: 100%; }
         .faq-title { font-size: 15px; font-weight: 800; margin-bottom: 12px; color: var(--color-text); }
         details { margin-bottom: 10px; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px; background: #fafafa; transition: all 0.2s; }
@@ -216,11 +212,11 @@
         details[open] summary::after { transform: rotate(45deg); }
         .faq-answer { font-size: 12px; color: #64748b; margin-top: 8px; line-height: 1.5; padding-top: 8px; border-top: 1px solid #f1f5f9; }
 
-        /* --- RODAPÉ --- */
+        /* Rodapé */
         .footer { margin-top: 40px; font-size: 11px; color: #94a3b8; line-height: 1.6; }
         .security-seals { display: flex; justify-content: center; gap: 12px; margin-top: 16px; opacity: 0.6; filter: grayscale(100%); }
 
-        /* --- ANIMAÇÕES --- */
+        /* Animações */
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-130px * 7)); } }
         @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
         @keyframes pulse-border { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
@@ -228,7 +224,7 @@
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        /* --- ELEMENTOS FLUTUANTES --- */
+        /* Elementos Flutuantes */
         .notify-box { 
             position: fixed; left: 50%; transform: translateX(-50%); 
             background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px);
@@ -253,7 +249,7 @@
             animation: slideUp 0.4s ease-out; 
         }
 
-        /* --- MODAL EXIT INTENT --- */
+        /* Modal Exit Intent */
         .modal-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(15, 23, 42, 0.8); z-index: 2000; display: none; 
@@ -284,7 +280,7 @@
 
     <main class="container">
         <header class="header-info">
-            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">26</span> online</div>
+            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">118</span> online</div>
             <div class="geo-tag" id="geo-loc">Carregando...</div>
         </header>
 
@@ -299,24 +295,15 @@
         <section class="trust-badges">
             <div class="trust-item">
                 <div class="trust-icon">⭐</div>
-                <div class="trust-text">
-                    <h4>Nota Alta</h4>
-                    <p>Só Vendedores 4.8+</p>
-                </div>
+                <div class="trust-text"><h4>Nota Alta</h4><p>Só Vendedores 4.8+</p></div>
             </div>
             <div class="trust-item">
                 <div class="trust-icon">🛡️</div>
-                <div class="trust-text">
-                    <h4>Links Oficiais</h4>
-                    <p>Shopee/ML Seguro</p>
-                </div>
+                <div class="trust-text"><h4>Links Oficiais</h4><p>Shopee/ML Seguro</p></div>
             </div>
             <div class="trust-item">
                 <div class="trust-icon">📸</div>
-                <div class="trust-text">
-                    <h4>Validado</h4>
-                    <p>Reviews com Fotos</p>
-                </div>
+                <div class="trust-text"><h4>Validado</h4><p>Reviews com Fotos</p></div>
             </div>
         </section>
 
@@ -357,31 +344,31 @@
             </div>
             <div class="author-text">
                 <h3>Oi, eu sou a Camila!</h3>
-                <p>Cansada de ver meu salário sumir em compras sem descontos, e produtos falsos, virei especialista em garimpar ofertas para o lar. O que eu acho pra <strong>minha casa e família</strong>, eu compartilho aqui.</p>
+                <p>Cansada de ver meu salário sumir no mercado, virei especialista em garimpar ofertas para o lar. O que eu acho pra <strong>minha casa e família</strong>, eu compartilho aqui.</p>
             </div>
         </section>
 
         <div class="bonus-text">🎁 Bônus: Tabela de Cupons liberada no fixado</div>
         
-        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" onclick="vibratePhone()">
+        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" onclick="vibratePhone()">
             <span class="icon-wa">➤</span> RECEBER PROMOÇÕES GRÁTIS NO ZAP
         </a>
 
-        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" target="_blank">Prefiro entrar pelo Telegram</a>
+        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" target="_blank" rel="noopener noreferrer">Prefiro entrar pelo Telegram</a>
 
         <section class="faq-section">
             <h2 class="faq-title">Dúvidas Frequentes</h2>
             <details>
                 <summary>É realmente grátis?</summary>
-                <div class="faq-answer">Sim! 100% gratuito. Você não paga nada para entrar e nem mensalidade. Nosso objetivo é criar a maior comunidade de economia do Brasil.</div>
+                <div class="faq-answer">Sim! 100% gratuito. Você não paga nada para entrar e nem mensalidade.</div>
             </details>
             <details>
                 <summary>É seguro comprar?</summary>
-                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon). Nossa equipe verifica a reputação de cada vendedor antes de postar.</div>
+                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon).</div>
             </details>
             <details>
                 <summary>Tem muita mensagem?</summary>
-                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem). Enviamos apenas as melhores ofertas do dia (cerca de 10 a 15), sem bom dia/boa noite ou correntes.</div>
+                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem).</div>
             </details>
         </section>
 
@@ -399,7 +386,7 @@
     <div id="notify-person" class="notify-box"><div class="dot green"></div><span class="n-text" id="person-text">...</span></div>
 
     <div class="sticky-cta" id="sticky-cta">
-        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" style="font-size: 15px; padding: 14px;" onclick="vibratePhone()">
+        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" style="font-size: 15px; padding: 14px;" onclick="vibratePhone()">
             RECEBER PROMOÇÕES GRÁTIS
         </a>
     </div>
@@ -409,14 +396,15 @@
             <div class="close-modal" onclick="closeModal()">×</div>
             <div class="modal-title">ESPERE! 😱</div>
             <p class="modal-p">Você vai perder sua vaga no <strong>Grupo VIP 03</strong> e o acesso aos cupons secretos.</p>
-            <a href="https://whats.ly/acheibaratofc" class="btn-modal" target="_blank" onclick="vibratePhone()">QUERO FICAR E ENTRAR</a>
+            <a href="https://whats.ly/acheibaratofc" class="btn-modal" target="_blank" rel="noopener noreferrer" onclick="vibratePhone()">QUERO FICAR E ENTRAR</a>
         </div>
     </div>
 
     <script>
+        // [31] DOM Content Loaded
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. GEO-LOCALIZAÇÃO + ROLETA A/B
+            // [Gatilho] Geo-Localização
             const cityStrategies = [
                 { class: 'style-success', text: '📍 OFERTAS PARA: {CITY}' },
                 { class: 'style-urgent', text: '⚡ VAGAS ABERTAS EM: {CITY}' },
@@ -432,6 +420,7 @@
                 { class: 'style-vip', text: '⚠️ GRUPO VIP: VAGAS ABERTAS' }
             ];
 
+            // [20] Fetch Otimizado
             fetch('https://get.geojs.io/v1/ip/geo.json')
                 .then(res => res.json())
                 .then(data => {
@@ -450,43 +439,35 @@
                     geoTag.innerText = randomGen.text;
                 });
 
-            // 2. TIMER PERSISTENTE (LocalStorage)
+            // [35] Timer Persistente
             const timerEl = document.querySelector('#timer');
-            let duration = 300; // 5 minutos
-            
-            // Recupera tempo salvo ou inicia novo
+            let duration = 300;
             if(localStorage.getItem('savedTimer')) {
                 const savedTime = parseInt(localStorage.getItem('savedTimer'));
-                // Se ainda tem tempo, usa ele. Se acabou, reinicia.
                 if(savedTime > 0) duration = savedTime;
             }
 
             function startTimer() {
                 let timer = duration, minutes, seconds;
-                const interval = setInterval(function () {
+                setInterval(function () {
                     minutes = parseInt(timer / 60, 10);
                     seconds = parseInt(timer % 60, 10);
                     minutes = minutes < 10 ? "0" + minutes : minutes;
                     seconds = seconds < 10 ? "0" + seconds : seconds;
                     timerEl.textContent = minutes + ":" + seconds;
-                    
-                    // Salva no storage
                     localStorage.setItem('savedTimer', timer);
-
-                    if (--timer < 0) {
-                        timer = 300; // Loop infinito discreto
-                    }
+                    if (--timer < 0) timer = 300;
                 }, 1000);
             }
             startTimer();
 
-            // 3. FAVICON NOTIFICADOR
+            // [45] Favicon Notificador
             let originalTitle = document.title;
             setInterval(() => {
                 document.title = document.title === originalTitle ? "(1) Nova Mensagem" : originalTitle;
             }, 2000);
 
-            // 4. NOTIFICAÇÕES INTELIGENTES
+            // Notificações
             const notifyOffer = document.getElementById('notify-offer');
             const notifyPerson = document.getElementById('notify-person');
             const personText = document.getElementById('person-text');
@@ -497,10 +478,9 @@
             }
             setInterval(showOffer, 25000);
 
+            // [36] Randomização Real
             const names = ["Ana", "Bruna", "Carla", "Daniela", "Fernanda", "Gabriela", "Júlia", "Larissa", "Mariana", "Patrícia", "Rafaela", "Beatriz", "Camila", "André", "Bruno", "Carlos", "Daniel", "Felipe", "Gustavo", "João", "Lucas", "Matheus", "Pedro", "Rafael", "Thiago"];
             const ddds = ["11", "21", "31", "41", "51", "61", "71", "81", "91", "19", "12", "85"];
-            
-            // Algoritmo de não-repetição
             let availNames = [...names];
 
             function showPerson() {
@@ -512,9 +492,8 @@
 
                 personText.innerHTML = `${nome} <span style="color:var(--color-text-light);font-weight:400">(${ddd}) ${num}-****</span> entrou`;
                 
-                // Só mostra se modal estiver fechado
                 if(document.getElementById('exit-modal').style.display !== 'flex') {
-                    notifyPerson.style.bottom = "90px"; // Acima do sticky button
+                    notifyPerson.style.bottom = "90px"; 
                     setTimeout(() => notifyPerson.style.bottom = "-100px", 4000);
                 }
             }
@@ -524,7 +503,7 @@
             }
             setTimeout(loopPeople, 3000);
 
-            // 5. BOTÃO STICKY (Debounce Simples)
+            // [34] Debounce Sticky
             let isScrolling;
             window.addEventListener('scroll', () => {
                 window.clearTimeout(isScrolling);
@@ -538,15 +517,13 @@
                 }, 50);
             });
 
-            // 6. EXIT INTENT & BACK BUTTON (History API)
+            // [38] History API & Exit Intent
             const modal = document.getElementById('exit-modal');
             
-            // Desktop Exit
             document.addEventListener('mouseleave', (e) => {
                 if (e.clientY < 0) modal.style.display = 'flex';
             });
 
-            // Mobile Back Button
             history.pushState(null, null, location.href);
             window.onpopstate = function () {
                 modal.style.display = 'flex';
@@ -557,18 +534,19 @@
                 modal.style.display = 'none';
             }
             
+            // [39] Vibração Condicional
             window.vibratePhone = function() {
                 if (navigator.vibrate) navigator.vibrate(50);
             }
 
-            // 7. CONTADOR ONLINE (Oscilação Natural)
+            // [44] Prova Social Dinâmica
             setInterval(() => {
                 const el = document.getElementById('viewers');
                 let current = parseInt(el.innerText);
                 el.innerText = current + Math.floor(Math.random() * 5) - 2;
             }, 4000);
 
-        }); // Fim do DOMContentLoaded
+        });
     </script>
 </body>
 </html>
