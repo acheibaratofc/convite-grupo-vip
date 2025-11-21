@@ -28,7 +28,6 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "u9pht0namf");
     </script>
-
     <style>
         /* [21-30] DESIGN SYSTEM (Variáveis e UX) */
         :root {
@@ -43,7 +42,7 @@
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
             --radius-lg: 24px;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif; /* Fallback Fonts */
         }
 
         /* Reset Moderno */
@@ -202,11 +201,10 @@
         }
         .icon-wa { margin-right: 10px; font-size: 22px; }
         
-        /* Correção Telegram */
         .btn-telegram { 
             margin-top: 16px; display: inline-block; font-size: 13px; color: #3b82f6; 
             text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; 
-            transition: border-color 0.2s; padding: 10px 20px; cursor: pointer;
+            transition: border-color 0.2s; 
         }
         .btn-telegram:hover { border-color: #3b82f6; }
 
@@ -289,7 +287,7 @@
 
     <main class="container">
         <header class="header-info">
-            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">118</span> online</div>
+            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">59</span> online</div>
             <div class="geo-tag" id="geo-loc">Carregando...</div>
         </header>
 
@@ -349,11 +347,11 @@
 
         <section class="author-box">
             <div class="author-img-wrapper">
-                <img src="eu.png" alt="Camila" class="author-img" width="54" height="54" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
+                <img src="eu.png" alt="Laís" class="author-img" width="54" height="54" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
             </div>
             <div class="author-text">
                 <h3>Oi, eu sou a Laís!</h3>
-                <p>Cansada de ver meu salário sumir no mercado, virei especialista em garimpar ofertas para o lar. O que eu acho pra <strong>minha casa e família</strong>, eu compartilho aqui.</p>
+                <p>Cansada de ver meu salário sumir em compras online que raramente eram o que prometia, virei especialista em garimpar ofertas para o lar. O que eu acho pra <strong>minha casa e família</strong>, eu compartilho aqui.</p>
             </div>
         </section>
 
@@ -371,15 +369,15 @@
             <h2 class="faq-title">Dúvidas Frequentes</h2>
             <details>
                 <summary>É realmente grátis?</summary>
-                <div class="faq-answer">Sim! 100% gratuito. Você não paga nada para entrar e nem mensalidade. Nosso objetivo é criar a maior comunidade de economia do Brasil.</div>
+                <div class="faq-answer">Sim! 100% gratuito. Você não paga nada para entrar e nem mensalidade.</div>
             </details>
             <details>
                 <summary>É seguro comprar?</summary>
-                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon). Nossa equipe verifica a reputação de cada vendedor antes de postar.</div>
+                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon).</div>
             </details>
             <details>
                 <summary>Tem muita mensagem?</summary>
-                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem). Enviamos apenas as melhores ofertas do dia (cerca de 10 a 15), sem bom dia/boa noite ou correntes.</div>
+                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem).</div>
             </details>
         </section>
 
@@ -416,11 +414,11 @@
             
             // 1. GEO-LOCALIZAÇÃO + ROLETA A/B
             const cityStrategies = [
-                { class: 'style-success', text: '📍 OFERTAS PARA: {CITY}' },
-                { class: 'style-urgent', text: '⚡ VAGAS ABERTAS EM: {CITY}' },
-                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA EM: {CITY}' },
-                { class: 'style-vip', text: '🔒 ACESSO VIP: {CITY}' },
-                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS: {CITY}' }
+                { class: 'style-success', text: '📍 NOVAS OFERTAS PARA: {CITY}' },
+                { class: 'style-urgent', text: '⚡ NOVAS VAGAS GRUPO DE OFERTAS PARA: {CITY}' },
+                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA SHOPEE E MERCADO LIVRE PARA: {CITY}' },
+                { class: 'style-vip', text: '🔒 ACESSO VIP GRUPO DE PROMOÇÕES PARA: {CITY}' },
+                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS PARA ENTRAR NO GRUPO DE PROMOÇÕES PARA: {CITY}' }
             ];
             
             const genericStrategies = [
