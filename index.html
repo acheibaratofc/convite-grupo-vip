@@ -55,7 +55,7 @@
         .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-140px * 7)); } }
 
-        /* --- BLOCO DE STATUS DOS GRUPOS (NOVO) --- */
+        /* --- BLOCO DE STATUS DOS GRUPOS --- */
         .status-box {
             background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px;
             padding: 20px; margin-bottom: 25px; text-align: left;
@@ -202,24 +202,41 @@
         }
         setInterval(showOfferNotify, 20000); // A cada 20s
         
-        // --- 2. BANCO DE DADOS GIGANTE (PESSOAS ENTRANDO) ---
-        const firstNames = [
+        // --- 2. BANCO DE DADOS INTELIGENTE (SEM REPETIÇÃO) ---
+        // Lista Mestra de Nomes (Nunca muda)
+        const masterNames = [
             "Ana", "Bruna", "Carla", "Daniela", "Eduarda", "Fernanda", "Gabriela", "Heloísa", "Isabela", "Júlia", 
             "Karina", "Larissa", "Mariana", "Natália", "Olívia", "Patrícia", "Rafaela", "Sabrina", "Tatiane", "Vanessa", 
             "Beatriz", "Camila", "Débora", "Eliane", "Fabiana", "Giovana", "Helena", "Ivana", "Joana", "Kelly",
             "André", "Bruno", "Carlos", "Daniel", "Eduardo", "Felipe", "Gustavo", "Henrique", "Igor", "João", 
             "Lucas", "Matheus", "Nicolas", "Pedro", "Rafael", "Samuel", "Thiago", "Vitor", "William", "Xavier",
-            "Arthur", "Bernardo", "Caio", "Davi", "Enzo", "Francisco", "Gabriel", "Heitor", "Isaac", "Jorge"
+            "Arthur", "Bernardo", "Caio", "Davi", "Enzo", "Francisco", "Gabriel", "Heitor", "Isaac", "Jorge",
+            "Lívia", "Lorena", "Cecília", "Esther", "Agatha", "Mirella", "Sophie", "Stella", "Yasmim", "Laís"
         ];
         
         const ddds = ["11", "12", "13", "19", "21", "22", "24", "31", "32", "41", "42", "47", "48", "51", "53", "61", "62", "71", "81", "85", "91", "92"];
+        
+        // Lista de Nomes Disponíveis (Vai diminuindo conforme usa)
+        let availableNames = [...masterNames];
+
+        function getUniqueName() {
+            // Se acabarem os nomes, enche a lista de novo (reset)
+            if (availableNames.length === 0) {
+                availableNames = [...masterNames];
+            }
+            // Escolhe um índice aleatório
+            const randomIndex = Math.floor(Math.random() * availableNames.length);
+            // Pega o nome e REMOVE da lista de disponíveis
+            const name = availableNames.splice(randomIndex, 1)[0];
+            return name;
+        }
         
         function showPersonNotify() {
             const notify = document.getElementById('notify-person');
             const textElem = document.getElementById('person-text');
             
-            // Sorteia dados
-            const nome = firstNames[Math.floor(Math.random() * firstNames.length)];
+            // Pega nome ÚNICO (sem repetição)
+            const nome = getUniqueName();
             const ddd = ddds[Math.floor(Math.random() * ddds.length)];
             
             // Gera número aleatório (9xxxx)
@@ -235,7 +252,7 @@
             setTimeout(() => { notify.style.bottom = "-100px"; }, 4000);
         }
 
-        // Loop aleatório entre 5 e 12 segundos (mais natural)
+        // Loop aleatório entre 5 e 12 segundos
         function loopPeople() {
             const randTime = Math.floor(Math.random() * (12000 - 5000 + 1) + 5000);
             setTimeout(() => {
