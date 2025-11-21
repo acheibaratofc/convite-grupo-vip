@@ -21,6 +21,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "u9pht0namf");
+    </script>
+
     <style>
         /* [21-30] DESIGN SYSTEM (Variáveis e UX) */
         :root {
@@ -35,7 +43,7 @@
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
             --radius-lg: 24px;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif; /* Fallback Fonts */
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         /* Reset Moderno */
@@ -194,10 +202,11 @@
         }
         .icon-wa { margin-right: 10px; font-size: 22px; }
         
+        /* Correção Telegram */
         .btn-telegram { 
             margin-top: 16px; display: inline-block; font-size: 13px; color: #3b82f6; 
             text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; 
-            transition: border-color 0.2s; 
+            transition: border-color 0.2s; padding: 10px 20px; cursor: pointer;
         }
         .btn-telegram:hover { border-color: #3b82f6; }
 
@@ -280,7 +289,7 @@
 
     <main class="container">
         <header class="header-info">
-            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">59</span> online</div>
+            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">118</span> online</div>
             <div class="geo-tag" id="geo-loc">Carregando...</div>
         </header>
 
@@ -340,11 +349,11 @@
 
         <section class="author-box">
             <div class="author-img-wrapper">
-                <img src="eu.png" alt="Laís" class="author-img" width="54" height="54" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
+                <img src="eu.png" alt="Camila" class="author-img" width="54" height="54" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
             </div>
             <div class="author-text">
                 <h3>Oi, eu sou a Laís!</h3>
-                <p>Cansada de ver meu salário sumir em compras online que raramente eram o que prometia, virei especialista em garimpar ofertas para o lar. O que eu acho pra <strong>minha casa e família</strong>, eu compartilho aqui.</p>
+                <p>Cansada de ver meu salário sumir no mercado, virei especialista em garimpar ofertas para o lar. O que eu acho pra <strong>minha casa e família</strong>, eu compartilho aqui.</p>
             </div>
         </section>
 
@@ -354,21 +363,23 @@
             <span class="icon-wa">➤</span> RECEBER PROMOÇÕES GRÁTIS NO ZAP
         </a>
 
-        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" target="_blank" rel="noopener noreferrer">Prefiro entrar pelo Telegram</a>
+        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
+           Prefiro entrar pelo Telegram
+        </a>
 
         <section class="faq-section">
             <h2 class="faq-title">Dúvidas Frequentes</h2>
             <details>
                 <summary>É realmente grátis?</summary>
-                <div class="faq-answer">Sim! 100% gratuito. Você não paga nada para entrar e nem mensalidade.</div>
+                <div class="faq-answer">Sim! 100% gratuito. Você não paga nada para entrar e nem mensalidade. Nosso objetivo é criar a maior comunidade de economia do Brasil.</div>
             </details>
             <details>
                 <summary>É seguro comprar?</summary>
-                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon).</div>
+                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon). Nossa equipe verifica a reputação de cada vendedor antes de postar.</div>
             </details>
             <details>
                 <summary>Tem muita mensagem?</summary>
-                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem).</div>
+                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem). Enviamos apenas as melhores ofertas do dia (cerca de 10 a 15), sem bom dia/boa noite ou correntes.</div>
             </details>
         </section>
 
@@ -401,16 +412,15 @@
     </div>
 
     <script>
-        // [31] DOM Content Loaded
         document.addEventListener('DOMContentLoaded', () => {
             
-            // [Gatilho] Geo-Localização
+            // 1. GEO-LOCALIZAÇÃO + ROLETA A/B
             const cityStrategies = [
-                { class: 'style-success', text: '📍 NOVAS OFERTAS PARA: {CITY}' },
-                { class: 'style-urgent', text: '⚡ NOVAS VAGAS GRUPO DE OFERTAS PARA: {CITY}' },
-                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA SHOPEE E MERCADO LIVRE PARA: {CITY}' },
-                { class: 'style-vip', text: '🔒 ACESSO VIP GRUPO DE PROMOÇÕES PARA: {CITY}' },
-                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS PARA ENTRAR NO GRUPO DE PROMOÇÕES PARA: {CITY}' }
+                { class: 'style-success', text: '📍 OFERTAS PARA: {CITY}' },
+                { class: 'style-urgent', text: '⚡ VAGAS ABERTAS EM: {CITY}' },
+                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA EM: {CITY}' },
+                { class: 'style-vip', text: '🔒 ACESSO VIP: {CITY}' },
+                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS: {CITY}' }
             ];
             
             const genericStrategies = [
@@ -420,7 +430,6 @@
                 { class: 'style-vip', text: '⚠️ GRUPO VIP: VAGAS ABERTAS' }
             ];
 
-            // [20] Fetch Otimizado
             fetch('https://get.geojs.io/v1/ip/geo.json')
                 .then(res => res.json())
                 .then(data => {
@@ -439,9 +448,10 @@
                     geoTag.innerText = randomGen.text;
                 });
 
-            // [35] Timer Persistente
+            // 2. TIMER PERSISTENTE
             const timerEl = document.querySelector('#timer');
-            let duration = 300;
+            let duration = 300; // 5 minutos
+            
             if(localStorage.getItem('savedTimer')) {
                 const savedTime = parseInt(localStorage.getItem('savedTimer'));
                 if(savedTime > 0) duration = savedTime;
@@ -461,13 +471,13 @@
             }
             startTimer();
 
-            // [45] Favicon Notificador
+            // 3. FAVICON NOTIFICADOR
             let originalTitle = document.title;
             setInterval(() => {
                 document.title = document.title === originalTitle ? "(1) Nova Mensagem" : originalTitle;
             }, 2000);
 
-            // Notificações
+            // 4. NOTIFICAÇÕES
             const notifyOffer = document.getElementById('notify-offer');
             const notifyPerson = document.getElementById('notify-person');
             const personText = document.getElementById('person-text');
@@ -478,7 +488,6 @@
             }
             setInterval(showOffer, 25000);
 
-            // [36] Randomização Real
             const names = ["Ana", "Bruna", "Carla", "Daniela", "Fernanda", "Gabriela", "Júlia", "Larissa", "Mariana", "Patrícia", "Rafaela", "Beatriz", "Camila", "André", "Bruno", "Carlos", "Daniel", "Felipe", "Gustavo", "João", "Lucas", "Matheus", "Pedro", "Rafael", "Thiago"];
             const ddds = ["11", "21", "31", "41", "51", "61", "71", "81", "91", "19", "12", "85"];
             let availNames = [...names];
@@ -503,7 +512,7 @@
             }
             setTimeout(loopPeople, 3000);
 
-            // [34] Debounce Sticky
+            // 5. BOTÃO STICKY
             let isScrolling;
             window.addEventListener('scroll', () => {
                 window.clearTimeout(isScrolling);
@@ -517,7 +526,7 @@
                 }, 50);
             });
 
-            // [38] History API & Exit Intent
+            // 6. EXIT INTENT & BACK BUTTON
             const modal = document.getElementById('exit-modal');
             
             document.addEventListener('mouseleave', (e) => {
@@ -534,12 +543,11 @@
                 modal.style.display = 'none';
             }
             
-            // [39] Vibração Condicional
             window.vibratePhone = function() {
                 if (navigator.vibrate) navigator.vibrate(50);
             }
 
-            // [44] Prova Social Dinâmica
+            // 7. CONTADOR ONLINE
             setInterval(() => {
                 const el = document.getElementById('viewers');
                 let current = parseInt(el.innerText);
