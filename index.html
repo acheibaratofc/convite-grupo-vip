@@ -95,6 +95,19 @@
             transition: all 0.3s ease; animation: pulse-border 2s infinite;
         }
 
+        /* --- NOVOS ESTILOS AGRESSIVOS --- */
+        
+        /* Estilo FALHA NO SISTEMA (Fundo Preto e Letra Amarela - Chama muita atenção) */
+        .style-glitch { 
+            background: #000; color: #fbbf24; border: 1px solid #fbbf24; 
+            animation: pulse-border 0.5s infinite; letter-spacing: 1px; font-family: monospace;
+        }
+        
+        /* Estilo DEVOLUÇÃO (Parece etiqueta de correio) */
+        .style-return {
+            background: #fefce8; color: #854d0e; border: 1px dashed #eab308;
+        }
+
         /* Estilos da Roleta */
         .style-alert { background: #fff7ed; color: #c2410c; border: 1px solid #fdba74; }
         .style-urgent { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
@@ -463,20 +476,30 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. GEO-LOCALIZAÇÃO + ROLETA A/B
+            // 1. GEO-LOCALIZAÇÃO + ROLETA A/B (NÍVEL HARDCORE/AGRESSIVO)
             const cityStrategies = [
-                { class: 'style-success', text: '📍 OFERTAS PARA: {CITY}' },
-                { class: 'style-urgent', text: '⚡ VAGAS ABERTAS EM: {CITY}' },
-                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA EM: {CITY}' },
-                { class: 'style-vip', text: '🔒 ACESSO VIP: {CITY}' },
-                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS: {CITY}' }
+                // Gatilho: FALHA NO SISTEMA (Curiosidade Extrema)
+                { class: 'style-glitch', text: '⚠️ FALHA NO APP: PREÇOS EM {CITY}' },
+                
+                // Gatilho: ESTOQUE PARADO (Oportunidade)
+                { class: 'style-return', text: '📦 LOTE DE DEVOLUÇÃO: {CITY}' },
+                
+                // Gatilho: INJUSTIÇA/EXCLUSIVIDADE (Ego)
+                { class: 'style-alert', text: '🛑 PARE TUDO: BUG EM {CITY}' },
+                
+                // Gatilho: ESCASSEZ REAL (Medo de perder)
+                { class: 'style-urgent', text: '🔥 RESTAM 03 CAIXAS PARA: {CITY}' },
+                
+                // Gatilho: LOGÍSTICA (Imediatismo)
+                { class: 'style-success', text: '🚚 CAMINHÃO LIBERADO EM: {CITY}' }
             ];
             
             const genericStrategies = [
-                { class: 'style-alert', text: '🔥 OFERTAS BOMBANDO NO GRUPO' },
-                { class: 'style-urgent', text: '⚡ VAGAS LIMITADAS HOJE' },
-                { class: 'style-success', text: '📦 LISTA DE PROMOÇÕES ATUALIZADA' },
-                { class: 'style-vip', text: '⚠️ GRUPO VIP: VAGAS ABERTAS' }
+                // Gatilhos Genéricos (Quando não acha a cidade)
+                { class: 'style-glitch', text: '⚠️ ERRO 404: PREÇO ZERADO HOJE' },
+                { class: 'style-urgent', text: '🚨 ATENÇÃO: ESTOQUE SENDO QUEIMADO' },
+                { class: 'style-alert', text: '📦 SÓ HOJE: LISTA DE BUGS LIBERADA' },
+                { class: 'style-vip', text: '🔒 ACESSO RESTRITO: NÃO COMPARTILHE' }
             ];
 
             fetch('https://get.geojs.io/v1/ip/geo.json')
