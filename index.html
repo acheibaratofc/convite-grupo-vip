@@ -6,30 +6,26 @@
     <title>Achei Barato - Comunidade Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* DESIGN CLEAN E "PREMIUM" (Estilo Apple/Nubank) */
+        /* DESIGN CLEAN PREMIUM (Estilo Apple/Nubank) */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { 
-            background: #f5f7fa; /* Cinza muito suave, elegante */
+            background: #f5f7fa; 
             display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #333; padding: 20px; 
         }
 
         .container {
             background: white; width: 100%; max-width: 420px; padding: 40px 25px;
             border-radius: 30px; 
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05); /* Sombra suave e moderna */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05); 
             text-align: center; position: relative; overflow: hidden;
         }
 
-        /* LOGO COM BORDA DE DESTAQUE */
+        /* LOGO */
         .logo-area { margin-bottom: 20px; position: relative; display: inline-block; }
         .logo-img { 
-            width: 110px; height: 110px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 4px solid white; /* Borda branca interna */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Sombra externa */
+            width: 110px; height: 110px; border-radius: 50%; object-fit: cover; 
+            border: 4px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
         }
-        /* Selo de Verificado Real */
         .verified-badge {
             position: absolute; bottom: 5px; right: 5px; 
             background: #2563eb; color: white; width: 30px; height: 30px; 
@@ -37,7 +33,7 @@
             border: 3px solid white; font-size: 14px;
         }
 
-        /* COPY DE AUTORIDADE (Sem mentiras) */
+        /* TAG TOPO */
         .tag-top {
             background: #e0f2fe; color: #0284c7; padding: 6px 14px; border-radius: 50px;
             font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
@@ -45,9 +41,8 @@
         }
 
         h1 { font-size: 26px; line-height: 1.2; margin-bottom: 15px; color: #111; font-weight: 900; letter-spacing: -0.5px; }
-        h1 span { color: #2563eb; } /* Azul confiável */
+        h1 span { color: #2563eb; }
         
-        /* Texto focado na CURADORIA e SEGURANÇA */
         p.subheadline { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 25px; font-weight: 500; }
         
         /* CARROSSEL */
@@ -61,40 +56,20 @@
         .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-140px * 7)); } }
 
-        /* BENEFÍCIOS (Gatilho Racional) */
+        /* BENEFÍCIOS */
         .benefits { text-align: left; margin-bottom: 30px; background: #f8fafc; padding: 20px; border-radius: 16px; }
         .benefit-item { display: flex; align-items: center; margin-bottom: 12px; font-size: 14px; color: #444; font-weight: 500; }
         .benefit-item:last-child { margin-bottom: 0; }
         .check-icon { color: #16a34a; margin-right: 10px; font-weight: bold; background: #dcfce7; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;}
 
-        /* PROVA SOCIAL REALISTA */
-        .social-proof-box {
-            display: flex; align-items: center; justify-content: center; gap: -10px; margin-bottom: 25px;
-        }
-        .avatar-group { display: flex; }
-        .avatar-mini { 
-            width: 32px; height: 32px; border-radius: 50%; border: 2px solid white; background: #ddd; 
-            margin-left: -10px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #666; font-weight: bold;
-        }
-        .avatar-mini:first-child { margin-left: 0; background-color: #ffcccc; }
-        .avatar-mini:nth-child(2) { background-color: #ccffcc; }
-        .avatar-mini:nth-child(3) { background-color: #ccccff; }
-        .avatar-mini:nth-child(4) { background-color: #f0f0f0; font-size: 9px; }
-        
-        .proof-text { font-size: 12px; color: #666; margin-left: 10px; font-weight: 600; }
-        .proof-text strong { color: #333; }
-
-        /* BOTÃO QUE FUNCIONA (Link Direto) */
+        /* BOTÃO WHATSAPP */
         .btn-whatsapp {
-            background: #16a34a; /* Verde WhatsApp Oficial */
-            color: white; text-decoration: none; padding: 20px; border-radius: 16px;
+            background: #16a34a; color: white; text-decoration: none; padding: 20px; border-radius: 16px;
             font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 8px 20px rgba(22, 163, 74, 0.25);
             transition: transform 0.2s; width: 100%; position: relative; overflow: hidden;
+            animation: pulse-btn 2s infinite;
         }
-        /* Animação de pulso para chamar atenção */
-        .btn-whatsapp { animation: pulse-btn 2s infinite; }
-        
         .btn-whatsapp:active { transform: scale(0.98); }
         .icon-wa { margin-right: 12px; font-size: 24px; }
         .btn-subtext { font-size: 12px; color: #888; margin-top: 12px; display: block; font-weight: 500; }
@@ -106,6 +81,26 @@
         }
 
         .footer { margin-top: 30px; font-size: 11px; color: #aaa; line-height: 1.5; }
+
+        /* ESTILO DAS NOTIFICAÇÕES (TOPO E RODAPÉ) */
+        .notify-box {
+            position: fixed; left: 50%; transform: translateX(-50%); 
+            background: white; padding: 10px 20px; border-radius: 50px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 10px; 
+            z-index: 100; border: 1px solid #eee; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            width: max-content; max-width: 90%;
+        }
+        
+        /* Notificação de Oferta (Topo) */
+        #notify-offer { top: -100px; } 
+        /* Notificação de Pessoa (Rodapé) */
+        #notify-person { bottom: -100px; }
+
+        .notify-dot-green { width: 10px; height: 10px; background: #16a34a; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 5px #16a34a; }
+        .notify-dot-blue { width: 10px; height: 10px; background: #2563eb; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 5px #2563eb; }
+        
+        .notify-text { font-size: 13px; font-weight: 600; color: #333; }
+        .notify-sub { font-size: 11px; color: #666; margin-left: 5px; font-weight: 400; }
     </style>
 </head>
 <body>
@@ -114,7 +109,7 @@
         <div class="tag-top">Comunidade Exclusiva</div>
 
         <div class="logo-area">
-            <img src="logo.jpg" alt="Achei Barato" class="logo-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3144/3144456.png'">
+            <img src="logo.jng" alt="Achei Barato" class="logo-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3144/3144456.png'">
             <div class="verified-badge">✓</div>
         </div>
         
@@ -143,7 +138,7 @@
         <div class="benefits">
             <div class="benefit-item">
                 <div class="check-icon">✓</div>
-                <span>Curadoria humana (nada de robô enviando spam)</span>
+                <span>Curadoria humana (nada de robô chato)</span>
             </div>
             <div class="benefit-item">
                 <div class="check-icon">✓</div>
@@ -155,19 +150,6 @@
             </div>
         </div>
 
-        <div class="social-proof-box">
-            <div class="avatar-group">
-                <div class="avatar-mini">A</div>
-                <div class="avatar-mini">B</div>
-                <div class="avatar-mini">C</div>
-                <div class="avatar-mini">+14</div>
-            </div>
-            <div class="proof-text">
-                Pessoas entraram hoje.<br>
-                <strong>Junte-se aos membros fundadores.</strong>
-            </div>
-        </div>
-
         <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp">
             <span class="icon-wa">➤</span> ENTRAR NO GRUPO AGORA
         </a>
@@ -175,30 +157,65 @@
 
         <div class="footer">
             © 2025 Achei Barato Oficial.<br>
-            Não temos vínculo com as marcas citadas.<br>
-            Promoções sujeitas a alteração de preço pelas lojas.
+            Não temos vínculo com as marcas citadas.
         </div>
     </div>
 
-    <div id="notify" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: white; padding: 10px 20px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 10px; z-index: 100; border: 1px solid #eee; transition: transform 0.5s;">
-        <div style="width: 10px; height: 10px; background: #16a34a; border-radius: 50%;"></div>
-        <span style="font-size: 12px; font-weight: 600; color: #333;">Nova oferta postada agora</span>
+    <div id="notify-offer" class="notify-box">
+        <div class="notify-dot-blue"></div>
+        <span class="notify-text">Nova oferta postada agora</span>
+    </div>
+
+    <div id="notify-person" class="notify-box">
+        <div class="notify-dot-green"></div>
+        <span class="notify-text" id="person-text">Carregando...</span>
     </div>
 
     <script>
-        // Script simples apenas para mostrar notificação de "Nova oferta" de vez em quando
-        // Isso mostra que o grupo é ATIVO, o que dá vontade de entrar.
-        function showNotification() {
-            const notify = document.getElementById('notify');
-            notify.style.transform = "translateX(-50%) translateY(0)";
+        // --- 1. LÓGICA DA NOVA OFERTA (TOPO) ---
+        function showOfferNotify() {
+            const notify = document.getElementById('notify-offer');
+            notify.style.top = "20px"; // Desce
+            setTimeout(() => { notify.style.top = "-100px"; }, 4000); // Sobe e esconde
+        }
+        // Mostra a cada 15 segundos
+        setInterval(showOfferNotify, 15000);
+        
+        // --- 2. LÓGICA DE PESSOAS ENTRANDO (RODAPÉ) ---
+        const names = ["Camila", "Lucas", "Fernanda", "Rafael", "Bruna", "Thiago", "Ana", "Marcos", "Júlia", "Pedro", "Larissa", "Gustavo"];
+        const ddds = ["11", "21", "31", "41", "51", "19", "13", "62", "81", "85"];
+        
+        function showPersonNotify() {
+            const notify = document.getElementById('notify-person');
+            const textElem = document.getElementById('person-text');
+            
+            // Gera dados aleatórios
+            const nome = names[Math.floor(Math.random() * names.length)];
+            const ddd = ddds[Math.floor(Math.random() * ddds.length)];
+            const part1 = Math.floor(Math.random() * (9999 - 9100 + 1) + 9100); // Gera algo tipo 9854
+            
+            // Monta o texto: Camila (11) 9854-**** entrou
+            textElem.innerHTML = `${nome} <span style="color:#888; font-weight:400;">(${ddd}) ${part1}-****</span> entrou`;
+            
+            // Mostra a notificação
+            notify.style.bottom = "20px"; // Sobe
+            
+            // Esconde depois de 4 segundos
+            setTimeout(() => { notify.style.bottom = "-100px"; }, 4000);
+        }
+
+        // Loop aleatório para pessoas entrando (entre 4 e 8 segundos)
+        function loopPeople() {
+            const randTime = Math.floor(Math.random() * (8000 - 4000 + 1) + 4000);
             setTimeout(() => {
-                notify.style.transform = "translateX(-50%) translateY(-100px)";
-            }, 4000);
+                showPersonNotify();
+                loopPeople();
+            }, randTime);
         }
         
-        // Mostra a notificação a cada 10 segundos
-        setInterval(showNotification, 10000);
-        setTimeout(showNotification, 2000); // Mostra a primeira logo que abre
+        // Inicia os loops
+        setTimeout(showOfferNotify, 2000); // Primeira oferta aparece rápido
+        setTimeout(loopPeople, 4000);      // Primeira pessoa aparece depois
     </script>
 </body>
 </html>
