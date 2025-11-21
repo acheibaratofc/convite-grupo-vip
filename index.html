@@ -28,8 +28,9 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "u9pht0namf");
     </script>
+
     <style>
-        /* [21-30] DESIGN SYSTEM (Variáveis e UX) */
+        /* --- ESTILO GERAL --- */
         :root {
             --color-primary: #2563eb;
             --color-success: #16a34a;
@@ -42,10 +43,9 @@
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
             --radius-lg: 24px;
-            --font-main: 'Inter', system-ui, -apple-system, sans-serif; /* Fallback Fonts */
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
-        /* Reset Moderno */
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         
         html { scroll-behavior: smooth; }
@@ -68,7 +68,7 @@
             border-bottom: 1px solid #fcd34d; position: fixed; top: 0; left: 0; 
             z-index: 999; box-shadow: var(--shadow-sm); letter-spacing: 0.5px;
         }
-        .timer-bar span { color: #b45309; font-weight: 900; font-family: monospace; font-size: 14px; }
+        .timer-bar span { color: #b45309; font-weight: 900; font-family: monospace; font-size: 13px; }
 
         /* Container */
         .container {
@@ -95,7 +95,6 @@
             transition: all 0.3s ease; animation: pulse-border 2s infinite;
         }
 
-        /* Estilos da Roleta */
         .style-alert { background: #fff7ed; color: #c2410c; border: 1px solid #fdba74; }
         .style-urgent { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
         .style-success { background: #f0fdf4; color: #15803d; border: 1px solid #86efac; }
@@ -129,7 +128,7 @@
         .trust-text h4 { font-size: 10px; font-weight: 800; color: var(--color-text); margin-bottom: 2px; text-transform: uppercase; }
         .trust-text p { font-size: 9px; color: var(--color-text-light); line-height: 1.2; font-weight: 600; }
 
-        /* Carrossel Otimizado */
+        /* Carrossel */
         .carousel-container { width: 100%; overflow: hidden; margin-bottom: 28px; padding: 5px 0; -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
         .carousel-track { display: flex; width: calc(130px * 14); animation: scroll 30s linear infinite; will-change: transform; }
         .carousel-item { 
@@ -167,7 +166,7 @@
         /* Author Box */
         .author-box { 
             display: flex; align-items: center; background: #fff1f2; 
-            padding: 16px; border-radius: 16px; margin-bottom: 24px; 
+            padding: 16px; border-radius: 16px; margin-bottom: 24px; margin-top: 24px; /* Afastamento */
             border: 1px solid #fecdd3; text-align: left; gap: 16px; 
         }
         .author-img-wrapper {
@@ -204,7 +203,7 @@
         .btn-telegram { 
             margin-top: 16px; display: inline-block; font-size: 13px; color: #3b82f6; 
             text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; 
-            transition: border-color 0.2s; 
+            transition: border-color 0.2s; padding: 10px 20px; cursor: pointer;
         }
         .btn-telegram:hover { border-color: #3b82f6; }
 
@@ -230,6 +229,7 @@
         @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 
         /* Elementos Flutuantes */
         .notify-box { 
@@ -287,7 +287,7 @@
 
     <main class="container">
         <header class="header-info">
-            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">59</span> online</div>
+            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">118</span> online</div>
             <div class="geo-tag" id="geo-loc">Carregando...</div>
         </header>
 
@@ -298,6 +298,10 @@
         
         <h1>O Segredo para ter uma <br><span>Casa de Rico Pagando Pouco</span></h1>
         <p class="subheadline">Eu garimpo pessoalmente os <strong>bugs de preço e produtos validados</strong> que as lojas escondem. Chega de comprar "gato por lebre" e gastar seu salário à toa.</p>
+
+        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" style="margin-bottom: 24px; padding: 15px; font-size: 14px;" onclick="vibratePhone()">
+            <span class="icon-wa">➤</span> ENTRAR AGORA
+        </a>
 
         <section class="trust-badges">
             <div class="trust-item">
@@ -345,6 +349,18 @@
             <div class="group-row group-active"><span>Grupo VIP 03</span><span class="badge-active">ABERTO HOJE</span></div>
         </section>
 
+        <div class="bonus-text">🎁 Bônus: Tabela de Cupons liberada no fixado</div>
+        
+        <div style="text-align: center; margin-bottom: 8px; animation: bounce 1s infinite; font-size: 20px;">👇</div>
+
+        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" onclick="vibratePhone()">
+            <span class="icon-wa">➤</span> RECEBER PROMOÇÕES GRÁTIS NO ZAP
+        </a>
+
+        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
+           Prefiro entrar pelo Telegram
+        </a>
+
         <section class="author-box">
             <div class="author-img-wrapper">
                 <img src="eu.png" alt="Laís" class="author-img" width="54" height="54" loading="lazy" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
@@ -355,16 +371,6 @@
             </div>
         </section>
 
-        <div class="bonus-text">🎁 Bônus: Tabela de Cupons liberada no fixado</div>
-        
-        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" onclick="vibratePhone()">
-            <span class="icon-wa">➤</span> RECEBER PROMOÇÕES GRÁTIS NO ZAP
-        </a>
-
-        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
-           Prefiro entrar pelo Telegram
-        </a>
-
         <section class="faq-section">
             <h2 class="faq-title">Dúvidas Frequentes</h2>
             <details>
@@ -373,11 +379,11 @@
             </details>
             <details>
                 <summary>É seguro comprar?</summary>
-                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon).</div>
+                <div class="faq-answer">Sim. Só enviamos links de lojas oficiais e verificadas (Shopee Oficial, Mercado Livre, Amazon). Nossa equipe verifica a reputação de cada vendedor antes de postar.</div>
             </details>
             <details>
                 <summary>Tem muita mensagem?</summary>
-                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem).</div>
+                <div class="faq-answer">Não se preocupe! O grupo é fechado (apenas administradores mandam mensagem). Enviamos apenas as melhores ofertas do dia (cerca de 10 a 15).</div>
             </details>
         </section>
 
@@ -414,11 +420,11 @@
             
             // 1. GEO-LOCALIZAÇÃO + ROLETA A/B
             const cityStrategies = [
-                { class: 'style-success', text: '📍 NOVAS OFERTAS PARA: {CITY}' },
-                { class: 'style-urgent', text: '⚡ NOVAS VAGAS GRUPO DE OFERTAS PARA: {CITY}' },
-                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA SHOPEE E MERCADO LIVRE PARA: {CITY}' },
-                { class: 'style-vip', text: '🔒 ACESSO VIP GRUPO DE PROMOÇÕES PARA: {CITY}' },
-                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS PARA ENTRAR NO GRUPO DE PROMOÇÕES PARA: {CITY}' }
+                { class: 'style-success', text: '📍 OFERTAS PARA: {CITY}' },
+                { class: 'style-urgent', text: '⚡ VAGAS ABERTAS EM: {CITY}' },
+                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA EM: {CITY}' },
+                { class: 'style-vip', text: '🔒 ACESSO VIP: {CITY}' },
+                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS: {CITY}' }
             ];
             
             const genericStrategies = [
