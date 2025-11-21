@@ -2,204 +2,193 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Achei Barato - Convite VIP Grátis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Convite Especial - Acesso Liberado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        /* RESET E BASE - Usando fonte Montserrat para ar mais moderno */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        /* ESTILO "DARK MODE" HÍBRIDO (O segredo da alta conversão mobile) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { 
-            background: linear-gradient(135deg, #f0f2f5 0%, #e6e9ef 100%); /* Fundo com degradê sutil */
-            display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #333; padding: 20px; 
+            background: #0f172a; /* Fundo Escuro Premium */
+            display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #333; padding: 15px; 
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%);
         }
 
         .container {
-            background: white; width: 100%; max-width: 420px; padding: 40px 24px;
-            border-radius: 30px; /* Bordas mais arredondadas */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08), 0 5px 15px rgba(0,0,0,0.03); /* Sombra 3D mais suave */
+            background: white; width: 100%; max-width: 400px; padding: 30px 20px;
+            border-radius: 24px; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
             text-align: center; position: relative; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* --- LOGO REDONDA E PROFISSIONAL --- */
-        .logo-area { margin-bottom: 25px; position: relative; }
-        .logo-img { 
-            width: 120px; /* Tamanho controlado */
-            height: 120px; 
-            object-fit: cover; /* Garante que a imagem preencha o círculo */
-            border-radius: 50%; /* O SEGREDO DO CÍRCULO */
-            display: block; margin: 0 auto; 
-            border: 3px solid white; /* Borda branca para destacar do fundo */
-            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.15); /* Sombra rosa suave na logo */
+        /* FAIXA DE URGÊNCIA TOPO */
+        .urgent-banner {
+            background: #ef4444; color: white; font-size: 11px; font-weight: 800; padding: 8px;
+            position: absolute; top: 0; left: 0; width: 100%; text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 2px 10px rgba(239, 68, 68, 0.3); z-index: 10;
         }
+
+        /* LOGO COM "VERIFICADO" */
+        .logo-area { margin-top: 25px; margin-bottom: 15px; position: relative; display: inline-block; }
+        .logo-circle { 
+            width: 90px; height: 90px; background: #f1f5f9; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; margin: 0 auto;
+            border: 3px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            font-weight: 900; color: #333; font-size: 14px; overflow: hidden;
+        }
+        .logo-img { width: 100%; height: 100%; object-fit: cover; }
+        .verified-badge {
+            position: absolute; bottom: 0; right: 0; background: #2563eb; color: white;
+            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 14px; border: 3px solid white;
+        }
+
+        /* HEADLINE "TABLOIDE" (Copy Agressiva) */
+        h1 { font-size: 26px; line-height: 1.1; margin-bottom: 10px; color: #1e293b; font-weight: 900; letter-spacing: -0.5px; }
+        h1 span { color: #dc2626; background: linear-gradient(45deg, #dc2626, #ef4444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* BADGE DE "GRÁTIS" PISCANDO NO TOPO */
-        .top-badge {
-            background: #00c853; color: white;
-            padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 800;
-            display: inline-block; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 4px 10px rgba(0, 200, 83, 0.3);
-            animation: pulse-green 2s infinite;
-        }
+        p.subheadline { color: #64748b; font-size: 14px; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
+        .highlight-box { background: #fef2f2; border: 1px dashed #fca5a5; color: #991b1b; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: 700; margin-bottom: 20px; }
 
-        /* TÍTULOS MAIS PERSUASIVOS */
-        h1 { font-size: 28px; line-height: 1.1; margin-bottom: 15px; color: #1a1a1a; font-weight: 900; letter-spacing: -0.5px; }
-        h1 span { color: #E91E63; background: -webkit-linear-gradient(45deg, #E91E63, #ff477e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        p.subheadline { color: #555; font-size: 15px; line-height: 1.5; margin-bottom: 25px; padding: 0 10px; font-weight: 500; }
-        p.subheadline strong { color: #E91E63; font-weight: 700; }
-
-        /* ÁREA DE CONFIANÇA MELHORADA */
-        .trust-badges {
-            display: flex; justify-content: space-around; align-items: flex-start;
-            background: #fff5f8; /* Fundo rosa muito claro */
-            padding: 20px 15px; border-radius: 16px;
-            margin-bottom: 30px; border: 1px solid #ffe0ec;
+        /* CARROSSEL COM PROVA DE ECONOMIA */
+        .carousel-wrapper { position: relative; margin-bottom: 25px; }
+        .save-tag { 
+            position: absolute; top: 10px; right: 10px; background: #16a34a; color: white; 
+            padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 800; z-index: 5;
+            box-shadow: 0 4px 6px rgba(22, 163, 74, 0.3);
         }
-        .trust-item { width: 32%; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .trust-icon-box {
-            width: 45px; height: 45px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 22px; margin-bottom: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        }
-        .trust-title { font-size: 12px; font-weight: 800; color: #333; margin-bottom: 4px; }
-        .trust-desc { font-size: 11px; color: #777; line-height: 1.2; font-weight: 600; }
-
-        /* CARROSSEL */
-        .carousel-container { width: 100%; overflow: hidden; margin-bottom: 30px; padding: 10px 0; background: white; }
-        .carousel-track { display: flex; width: calc(140px * 14); animation: scroll 25s linear infinite; }
+        .carousel-track { display: flex; width: calc(130px * 14); animation: scroll 20s linear infinite; }
         .carousel-item {
-            width: 130px; height: 130px; margin: 0 5px; border-radius: 12px;
-            overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); flex-shrink: 0; background: white; border: 1px solid #eee;
+            width: 120px; height: 120px; margin: 0 5px; border-radius: 12px;
+            overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); flex-shrink: 0; border: 1px solid #e2e8f0; position: relative;
         }
         .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-140px * 7)); } }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-130px * 7)); } }
 
-        /* ESCASSEZ */
-        .status-box { background: #fff0f3; border: 1px solid #ffcdd2; border-radius: 18px; padding: 20px; margin-bottom: 30px; }
-        .status-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; color: #999; font-weight: 600; }
-        .status-item.lotado span:last-child { text-decoration: line-through; opacity: 0.6; }
-        .status-item.ativo { color: #333; font-weight: 800; font-size: 16px; }
-        .status-item.ativo span:last-child { color: #00c853; }
-        .barra-progresso { width: 100%; height: 10px; background: #fff; border-radius: 6px; margin-top: 15px; overflow: hidden; position: relative; border: 1px solid #ffcdd2; box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); }
-        .progresso-fill { width: 92%; height: 100%; background: linear-gradient(90deg, #E91E63, #ff477e); border-radius: 6px; transition: width 1s ease-in-out; }
-        .texto-vagas-rodape { font-size: 12px; color: #E91E63; margin-top: 8px; font-weight: 800; text-align: center; text-transform: uppercase; letter-spacing: 0.5px;}
-
-        /* BOTÃO WHATSAPP IRRESISTÍVEL */
-        .btn-whatsapp {
-            background: linear-gradient(to bottom, #00E676, #00C853); /* Verde mais vibrante */
-            color: white; text-decoration: none; padding: 20px; border-radius: 50px;
-            font-size: 20px; font-weight: 900; display: flex; align-items: center; justify-content: center; text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(0, 230, 118, 0.5), inset 0 2px 0 rgba(255,255,255,0.3);
-            transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
-        }
-        /* Efeito de brilho passando no botão */
-        .btn-whatsapp::after {
-            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
-            transform: rotate(45deg); animation: shine 3s infinite;
-        }
-        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0, 230, 118, 0.7); }
-        .btn-whatsapp:active { transform: translateY(1px); box-shadow: 0 4px 15px rgba(0, 230, 118, 0.4); }
-        .icon-wa { margin-right: 12px; font-size: 28px; }
+        /* ESCASSEZ EXTREMA */
+        .scarcity-panel { background: #f8fafc; border-radius: 16px; padding: 15px; margin-bottom: 25px; border: 1px solid #e2e8f0; }
+        .live-indicator { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: #ef4444; font-weight: 700; margin-bottom: 10px; }
+        .pulsing-dot { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; animation: pulse-red 1.5s infinite; }
         
-        .sub-btn-text { display: block; text-align: center; font-size: 12px; color: #888; margin-top: 10px; font-weight: 600; }
+        .progress-container { height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 5px; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, #ef4444, #b91c1c); width: 92%; border-radius: 10px; transition: width 0.5s; }
+        .spots-left { font-size: 11px; color: #64748b; font-weight: 600; }
 
-        /* Animações */
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); } }
-        @keyframes shine { 0% { left: -50%; top: -50%; } 100% { left: 100%; top: 100%; } }
+        /* BOTÃO "FAKE LOADING" (Tática VIP) */
+        #btn-wrapper { position: relative; min-height: 60px; }
+        
+        .btn-primary {
+            background: #10b981; color: white; text-decoration: none; padding: 18px; border-radius: 12px;
+            font-size: 18px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 0 #059669; /* Efeito 3D de botão clicável */
+            transition: all 0.1s; width: 100%; border: none; cursor: pointer; text-transform: uppercase;
+        }
+        .btn-primary:active { transform: translateY(4px); box-shadow: none; }
+        
+        .btn-loading {
+            background: #cbd5e1; color: #64748b; pointer-events: none; box-shadow: none;
+        }
+        
+        .spinner {
+            width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%;
+            border-top-color: white; animation: spin 1s ease-in-out infinite; margin-right: 10px; display: none;
+        }
 
-        .footer { margin-top: 30px; font-size: 11px; color: #aaa; line-height: 1.6; font-weight: 500; }
+        /* NOTIFICAÇÃO DE LUCRO */
+        .profit-toast {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px);
+            background: #fff; padding: 10px 20px; border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 10px;
+            z-index: 100; width: 90%; max-width: 350px; border: 1px solid #e2e8f0;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .toast-icon { background: #dcfce7; color: #16a34a; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        .toast-content { text-align: left; }
+        .toast-title { font-size: 12px; font-weight: 800; color: #1e293b; }
+        .toast-desc { font-size: 11px; color: #64748b; }
+
+        @keyframes pulse-red { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .footer { margin-top: 25px; font-size: 10px; color: #94a3b8; }
     </style>
 </head>
 <body>
 
+    <div class="urgent-banner">⚠️ Atenção: Vagas Quase Esgotadas</div>
+
     <div class="container">
-        <div class="top-badge">✅ Entrada 100% Gratuita</div>
-
         <div class="logo-area">
-            <img src="logo.jpg" alt="Achei Barato" class="logo-img">
-        </div>
-        
-        <h1>Pare de Jogar <br><span>Dinheiro Fora!</span></h1>
-        <p class="subheadline">Receba os <strong>bugs de preço e cupons secretos</strong> da Shopee e Mercado Livre no seu celular antes de todo mundo.</p>
-        
-        <div class="trust-badges">
-            <div class="trust-item">
-                <div class="trust-icon-box" style="color: #FFD700;">⭐</div>
-                <div class="trust-title">Avaliação Alta</div>
-                <div class="trust-desc">Só Vendedores 4.8+</div>
+            <div class="logo-circle">
+                <img src="logo.jpg" alt="Logo" class="logo-img" onerror="this.style.display='none'; this.parentNode.innerText='ACHEI BARATO';">
             </div>
-            <div class="trust-item">
-                <div class="trust-icon-box" style="color: #2196F3;">🛡️</div>
-                <div class="trust-title">Links Oficiais</div>
-                <div class="trust-desc">Shopee e ML Seguro</div>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon-box" style="color: #E91E63;">🔎</div>
-                <div class="trust-title">Curadoria Real</div>
-                <div class="trust-desc">Testados e Aprovados</div>
-            </div>
+            <div class="verified-badge">✔</div>
         </div>
 
-        <div class="carousel-container">
+        <h1>O segredo que a <br><span>Shopee não conta</span></h1>
+        <p class="subheadline">Descobrimos um padrão nos algoritmos que libera produtos de R$ 199 por <strong>R$ 9,90</strong>.</p>
+        
+        <div class="highlight-box">
+            🚫 Lojas tentaram derrubar este grupo 3 vezes.
+        </div>
+
+        <div class="carousel-wrapper">
+            <div class="save-tag">Economia de R$ 1.200+</div>
             <div class="carousel-track">
-                <div class="carousel-item"><img src="promo1.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo2.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo3.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo4.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo5.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo6.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo7.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo1.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo2.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo3.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo4.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo5.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo6.jpg" alt="Promo"></div>
-                <div class="carousel-item"><img src="promo7.jpg" alt="Promo"></div>
+                <div class="carousel-item"><img src="promo1.jpg"></div>
+                <div class="carousel-item"><img src="promo2.jpg"></div>
+                <div class="carousel-item"><img src="promo3.jpg"></div>
+                <div class="carousel-item"><img src="promo4.jpg"></div>
+                <div class="carousel-item"><img src="promo5.jpg"></div>
+                <div class="carousel-item"><img src="promo6.jpg"></div>
+                <div class="carousel-item"><img src="promo7.jpg"></div>
+                <div class="carousel-item"><img src="promo1.jpg"></div>
+                <div class="carousel-item"><img src="promo2.jpg"></div>
+                <div class="carousel-item"><img src="promo3.jpg"></div>
+                <div class="carousel-item"><img src="promo4.jpg"></div>
+                <div class="carousel-item"><img src="promo5.jpg"></div>
+                <div class="carousel-item"><img src="promo6.jpg"></div>
+                <div class="carousel-item"><img src="promo7.jpg"></div>
             </div>
         </div>
 
-        <div class="status-box">
-            <div class="status-item lotado">
-                <span>Grupo VIP 01</span>
-                <span>LOTADO</span>
+        <div class="scarcity-panel">
+            <div class="live-indicator">
+                <div class="pulsing-dot"></div> 
+                AO VIVO: 112 pessoas tentando entrar
             </div>
-            <div class="status-item lotado">
-                <span>Grupo VIP 02</span>
-                <span>LOTADO</span>
+            <div class="progress-container">
+                <div class="progress-bar" id="bar"></div>
             </div>
-            <div class="status-item ativo">
-                <span>Grupo VIP 03</span>
-                <span id="spots-text">15 vagas restantes</span>
-            </div>
-            <div class="barra-progresso">
-                <div class="progresso-fill" id="progress-fill"></div>
-            </div>
-            <div class="texto-vagas-rodape">🔴 As vagas encerram em poucos minutos</div>
+            <div class="spots-left">Restam apenas <strong id="spots" style="color: #dc2626;">9</strong> vagas no Grupo VIP 03</div>
         </div>
 
-        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp">
-            <span class="icon-wa">➤</span> QUERO MEU ACESSO GRÁTIS
-        </a>
-        <span class="sub-btn-text">Toque acima para garantir sua vaga sem custo.</span>
+        <div id="btn-wrapper">
+            <button id="main-btn" class="btn-primary" onclick="checkAvailability()">
+                <div class="spinner" id="spin"></div>
+                <span id="btn-text">VERIFICAR DISPONIBILIDADE</span>
+            </button>
+        </div>
 
         <div class="footer">
-            🔒 Site Blindado e Seguro.<br>
-            © 2024 Achei Barato Oficial
+            🔒 Tecnologia de criptografia de ponta a ponta.<br>
+            Este site não possui vínculo oficial com as marcas citadas.
         </div>
     </div>
 
-    <div id="notify" style="position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%) translateY(100px); background: rgba(30,30,30,0.95); color: white; padding: 12px 24px; border-radius: 40px; font-size: 13px; font-weight: 600; display: flex; align-items: center; z-index: 100; white-space: nowrap; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-        <div style="height: 10px; width: 10px; background-color: #00E676; border-radius: 50%; margin-right: 12px; box-shadow: 0 0 8px #00E676;"></div> 
-        <span id="notify-text">Alguém entrou...</span>
+    <div class="profit-toast" id="toast">
+        <div class="toast-icon">💰</div>
+        <div class="toast-content">
+            <div class="toast-title">Ana P. economizou R$ 89,00</div>
+            <div class="toast-desc">Acabou de pegar a Promoção do Fone</div>
+        </div>
     </div>
+
     <script>
-        let totalSpots = 15; let currentSpots = totalSpots; const minSpots = 2; 
-        const spotsTextElem = document.getElementById('spots-text'); const progressFillElem = document.getElementById('progress-fill'); const notifyElem = document.getElementById('notify'); const textElem = document.getElementById('notify-text'); const names = ["Camila", "Rafael", "Bruna", "Thiago", "Ana Paula", "Lucas", "Fernanda", "Patrícia", "Marcos", "Juliana", "Beatriz", "Larissa"];
-        function updateScarcity() { if (currentSpots > minSpots) { currentSpots--; spotsTextElem.innerText = `${currentSpots} vagas restantes`; spotsTextElem.style.color = "#d32f2f"; const percentage = (currentSpots / totalSpots) * 100; progressFillElem.style.width = `${percentage}%`; if (currentSpots <= 5) progressFillElem.style.background = "linear-gradient(90deg, #d32f2f, #ff5252)"; } }
-        function showNotification() { const randomName = names[Math.floor(Math.random() * names.length)]; textElem.innerText = `${randomName} entrou no Grupo VIP`; notifyElem.style.transform = "translateX(-50%) translateY(0)"; updateScarcity(); setTimeout(() => { notifyElem.style.transform = "translateX(-50%) translateY(100px)"; }, 3500); }
-        function startLoop() { const randomTime = Math.floor(Math.random() * (7000 - 4000 + 1) + 4000); setTimeout(() => { showNotification(); startLoop(); }, randomTime); }
-        setTimeout(startLoop, 1500);
-    </script>
-</body>
-</html>
+        // CONFIGURAÇÃO DO LINK DO WHATSAPP
+        const whatsappLink = "https://whats.ly/acheibaratofc";
+
+        // SCRIPT DO BOTÃO INTELIGENTE
+        function checkAvailability() {
+            const btn = document.getElementById('main-btn');
