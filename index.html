@@ -12,7 +12,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { background: #f5f7fa; display: flex; flex-direction: column; align-items: center; min-height: 100vh; color: #333; padding: 0 15px 80px 15px; }
 
-        /* BARRA DE CRONÔMETRO RESERVADO */
+        /* BARRA DE CRONÔMETRO */
         .timer-bar {
             background: #fffbeb; color: #b45309; width: 100%; text-align: center; padding: 8px; font-size: 12px; font-weight: 700; border-bottom: 1px solid #fcd34d;
             position: fixed; top: 0; left: 0; z-index: 999; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -25,24 +25,28 @@
             text-align: center; position: relative; overflow: hidden; margin-top: 50px;
         }
 
-        /* HEADER COM ONLINE E GEO */
-        .header-info { display: flex; justify-content: space-between; width: 100%; margin-bottom: 20px; font-size: 11px; color: #666; font-weight: 600; align-items: center; }
+        /* HEADER COM ONLINE E GEO (CORRIGIDO A QUEBRA DE LINHA) */
+        .header-info { 
+            display: flex; justify-content: space-between; align-items: center; 
+            width: 100%; margin-bottom: 20px; font-size: 11px; color: #666; font-weight: 600; 
+        }
         .online-count { color: #16a34a; display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
         .pulse-dot { width: 8px; height: 8px; background: #16a34a; border-radius: 50%; animation: pulse 1.5s infinite; }
         
-        /* GEO TAG BASE */
+        /* GEO TAG (CSS Atualizado para não cortar texto) */
         .geo-tag { 
-            padding: 4px 10px; border-radius: 6px; font-weight: 900; font-size: 10px; 
-            text-transform: uppercase; display: flex; align-items: center; gap: 5px; 
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px;
+            padding: 6px 10px; border-radius: 6px; font-weight: 800; font-size: 10px; 
+            text-transform: uppercase; display: inline-flex; align-items: center; gap: 5px; 
+            text-align: right; line-height: 1.2;
             animation: pulse-border 2s infinite;
+            max-width: 60%; /* Ocupa no máximo 60% da linha para não empurrar o contador */
         }
 
-        /* VARIAÇÕES AGRESSIVAS (Black Hat Styles) */
+        /* ESTILOS DA ROLETA (CORES) */
         .style-bug { background: #fffbeb; color: #b45309; border: 1px solid #fcd34d; } /* Amarelo */
         .style-scarcity { background: #fef2f2; color: #dc2626; border: 1px solid #fca5a5; } /* Vermelho */
         .style-logistics { background: #f0fdf4; color: #15803d; border: 1px solid #86efac; } /* Verde */
-        .style-vip { background: #1e293b; color: #fbbf24; border: 1px solid #475569; } /* Dark/Gold */
+        .style-vip { background: #1e293b; color: #fbbf24; border: 1px solid #475569; } /* Dark */
         .style-hot { background: #fff7ed; color: #c2410c; border: 1px solid #fdba74; } /* Laranja */
 
         @keyframes pulse-border {
@@ -60,12 +64,11 @@
         h1 span { color: #2563eb; }
         p.subheadline { color: #555; font-size: 14px; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
 
-        /* CARROSSEL COM "ESGOTADO" */
+        /* CARROSSEL */
         .carousel-container { width: 100%; overflow: hidden; margin-bottom: 25px; padding: 5px 0; }
         .carousel-track { display: flex; width: calc(130px * 14); animation: scroll 25s linear infinite; }
         .carousel-item { width: 120px; height: 120px; margin: 0 5px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.08); flex-shrink: 0; border: 1px solid #eee; background: white; position: relative; }
         .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
-        /* Tarja de Esgotado */
         .sold-out-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 2; }
         .sold-tag { background: #ef4444; color: white; font-size: 10px; font-weight: 800; padding: 4px 8px; transform: rotate(-15deg); border: 2px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase; }
 
@@ -79,22 +82,20 @@
         .group-active { color: #0f172a; font-weight: 700; font-size: 14px; }
         .badge-active { font-size: 9px; font-weight: 800; color: #15803d; background: #dcfce7; padding: 4px 8px; border-radius: 20px; border: 1px solid #bbf7d0; animation: pulse 2s infinite; }
 
-        /* HUMANIZAÇÃO (Camila) */
+        /* HUMANIZAÇÃO */
         .author-box { display: flex; align-items: center; background: #fff1f2; padding: 15px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #fecdd3; text-align: left; gap: 12px; }
         .author-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); background: #ddd; }
         .author-text h3 { font-size: 13px; font-weight: 800; color: #9f1239; margin-bottom: 2px; }
         .author-text p { font-size: 11px; color: #881337; line-height: 1.3; }
 
-        /* BOTÃO PRINCIPAL */
+        /* BOTÕES */
         .btn-whatsapp { background: #16a34a; color: white; text-decoration: none; padding: 18px; border-radius: 12px; font-size: 17px; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 0 #15803d; transition: all 0.1s; width: 100%; position: relative; overflow: hidden; text-transform: uppercase; }
         .btn-whatsapp:active { transform: translateY(4px); box-shadow: none; }
         .icon-wa { margin-right: 10px; font-size: 22px; }
-        
-        /* BOTÃO TELEGRAM */
         .btn-telegram { margin-top: 15px; display: inline-block; font-size: 13px; color: #0284c7; text-decoration: none; font-weight: 600; border-bottom: 1px solid #0284c7; padding-bottom: 2px; }
 
-        /* FAQ (Sanfona) */
-        .faq-section { margin-top: 25px; text-align: left; }
+        /* FAQ (VOLTOU!) */
+        .faq-section { margin-top: 25px; text-align: left; width: 100%; }
         .faq-title { font-size: 14px; font-weight: 800; margin-bottom: 10px; color: #333; }
         details { margin-bottom: 8px; border: 1px solid #eee; border-radius: 8px; padding: 10px; background: #fafafa; }
         summary { font-size: 12px; font-weight: 600; cursor: pointer; outline: none; list-style: none; position: relative; padding-right: 20px; }
@@ -103,11 +104,11 @@
         details[open] summary::after { content: '-'; }
         .faq-answer { font-size: 11px; color: #666; margin-top: 8px; line-height: 1.4; padding-top: 5px; border-top: 1px solid #eee; }
 
-        /* RODAPÉ COM SELOS */
+        /* RODAPÉ */
         .footer { margin-top: 30px; font-size: 10px; color: #aaa; line-height: 1.5; }
         .security-seals { display: flex; justify-content: center; gap: 10px; margin-top: 10px; opacity: 0.7; filter: grayscale(100%); }
 
-        /* NOTIFICAÇÕES */
+        /* FLUTUANTES */
         .notify-box { position: fixed; left: 50%; transform: translateX(-50%); background: white; padding: 8px 16px; border-radius: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 8px; z-index: 1000; border: 1px solid #f1f5f9; width: max-content; max-width: 90%; transition: all 0.5s; }
         #notify-offer { top: -100px; } 
         #notify-person { bottom: -100px; } 
@@ -116,14 +117,8 @@
         .green { background: #16a34a; box-shadow: 0 0 5px #16a34a; }
         .n-text { font-size: 12px; font-weight: 600; color: #333; }
 
-        /* BOTÃO STICKY */
-        .sticky-cta {
-            position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 900; display: none; 
-            border-top: 1px solid #eee; animation: slideUp 0.5s ease-out;
-        }
+        .sticky-cta { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 900; display: none; border-top: 1px solid #eee; animation: slideUp 0.5s ease-out; }
 
-        /* MODAL EXIT INTENT */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
         .modal-box { background: white; width: 90%; max-width: 350px; padding: 25px; border-radius: 20px; text-align: center; animation: popIn 0.3s; position: relative; }
         .modal-title { font-size: 20px; font-weight: 900; color: #dc2626; margin-bottom: 10px; }
@@ -145,8 +140,8 @@
 
     <div class="container">
         <div class="header-info">
-            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">118</span> pessoas online</div>
-            <div class="geo-tag" id="geo-loc">Detectando...</div>
+            <div class="online-count"><div class="pulse-dot"></div> <span id="viewers">118</span> online</div>
+            <div class="geo-tag" id="geo-loc">Carregando...</div>
         </div>
 
         <div class="logo-area">
@@ -214,6 +209,10 @@
                 <summary>É seguro comprar?</summary>
                 <div class="faq-answer">Sim. Só enviamos links de lojas oficiais (Shopee Oficial, Mercado Livre, Amazon).</div>
             </details>
+            <details>
+                <summary>Tem muita mensagem?</summary>
+                <div class="faq-answer">O grupo é fechado (só adm manda mensagem). Enviamos cerca de 10 a 15 ofertas selecionadas por dia.</div>
+            </details>
         </div>
 
         <div class="footer">
@@ -246,33 +245,46 @@
     </div>
 
     <script>
-        // 1. GEO-LOCALIZAÇÃO AGRESSIVA COM ROLETA (Random 5 Strategies)
+        // 1. GEO-LOCALIZAÇÃO AGRESSIVA (Com 5 Variações + Fallback Genérico)
         const strategies = [
             { class: 'style-bug', text: '⚠️ BUG DE PREÇO: {CITY}' },
-            { class: 'style-scarcity', text: '🔴 ÚLTIMAS 3 VAGAS EM {CITY}' },
-            { class: 'style-logistics', text: '📦 LOTE EXTRA LIBERADO: {CITY}' },
-            { class: 'style-vip', text: '🔒 ACESSO VIP: MORADORES DE {CITY}' },
-            { class: 'style-hot', text: '🔥 ALTA PROCURA EM {CITY}' }
+            { class: 'style-scarcity', text: '🔴 ÚLTIMAS 3 VAGAS: {CITY}' },
+            { class: 'style-logistics', text: '📦 LOTE EXTRA: {CITY}' },
+            { class: 'style-vip', text: '🔒 VIP: MORADORES {CITY}' },
+            { class: 'style-hot', text: '🔥 ALTA PROCURA: {CITY}' }
+        ];
+        
+        // Variações Genéricas para quando não acha a cidade (Assim sempre muda)
+        const genericStrategies = [
+            { class: 'style-bug', text: '⚠️ ALERTA: PREÇOS ERRADOS HOJE' },
+            { class: 'style-scarcity', text: '🔴 ÚLTIMAS VAGAS DISPONÍVEIS' },
+            { class: 'style-logistics', text: '📦 ESTOQUE DE QUEIMA LIBERADO' },
+            { class: 'style-hot', text: '🔥 GRUPO QUASE LOTADO' }
         ];
 
         fetch('https://ipapi.co/json/')
             .then(res => res.json())
             .then(data => {
                 const geoTag = document.getElementById('geo-loc');
-                const cityName = data.city ? data.city.toUpperCase() : "SUA REGIÃO";
                 
-                // Sorteia uma estratégia aleatória
-                const randomStrategy = strategies[Math.floor(Math.random() * strategies.length)];
-                
-                // Aplica a classe e o texto
-                geoTag.className = `geo-tag ${randomStrategy.class}`;
-                geoTag.innerText = randomStrategy.text.replace('{CITY}', cityName);
+                if(data.city) {
+                    const cityName = data.city.toUpperCase();
+                    const randomStrategy = strategies[Math.floor(Math.random() * strategies.length)];
+                    geoTag.className = `geo-tag ${randomStrategy.class}`;
+                    geoTag.innerText = randomStrategy.text.replace('{CITY}', cityName);
+                } else {
+                    // Se não achar cidade, usa uma genérica aleatória
+                    const randomGen = genericStrategies[Math.floor(Math.random() * genericStrategies.length)];
+                    geoTag.className = `geo-tag ${randomGen.class}`;
+                    geoTag.innerText = randomGen.text;
+                }
             })
             .catch(() => {
-                // Fallback se a API falhar
+                // Se a API falhar, também usa uma genérica aleatória
                 const geoTag = document.getElementById('geo-loc');
-                geoTag.className = 'geo-tag style-bug';
-                geoTag.innerText = "⚠️ ALERTA: PREÇOS ERRADOS HOJE";
+                const randomGen = genericStrategies[Math.floor(Math.random() * genericStrategies.length)];
+                geoTag.className = `geo-tag ${randomGen.class}`;
+                geoTag.innerText = randomGen.text;
             });
 
         // 2. CRONÔMETRO
