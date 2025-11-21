@@ -95,12 +95,28 @@
             transition: all 0.3s ease; animation: pulse-border 2s infinite;
         }
 
-        /* --- NOVOS ESTILOS AGRESSIVOS --- */
+       /* --- ESTILOS REALISTAS (Lógica de Sistema) --- */
         
-        /* Estilo FALHA NO SISTEMA (Fundo Preto e Letra Amarela - Chama muita atenção) */
-        .style-glitch { 
-            background: #000; color: #fbbf24; border: 1px solid #fbbf24; 
-            animation: pulse-border 0.5s infinite; letter-spacing: 1px; font-family: monospace;
+        /* Estilo LOGÍSTICA (Parece aviso de Correio/Transportadora) */
+        .style-logistics { 
+            background: #eff6ff; color: #1e40af; border: 1px solid #60a5fa;
+            font-family: monospace; letter-spacing: -0.5px;
+        }
+
+        /* Estilo DEVOLUÇÃO/OPORTUNIDADE (Parece aviso de estoque real) */
+        .style-opportunity {
+            background: #fff7ed; color: #9a3412; border: 1px dashed #f97316;
+        }
+
+        /* Estilo CUPOM (Parece tag de desconto oficial) */
+        .style-coupon {
+            background: #f0fdf4; color: #166534; border: 1px solid #4ade80;
+        }
+
+        /* Estilo URGÊNCIA (Vermelho Sólido - Agressivo mas limpo) */
+        .style-urgent {
+            background: #fef2f2; color: #dc2626; border: 1px solid #ef4444;
+            animation: pulse 2s infinite;
         }
         
         /* Estilo DEVOLUÇÃO (Parece etiqueta de correio) */
@@ -476,30 +492,30 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. GEO-LOCALIZAÇÃO + ROLETA A/B (NÍVEL HARDCORE/AGRESSIVO)
+// 1. GEO-LOCALIZAÇÃO REALISTA (NÍVEL EXPERT)
             const cityStrategies = [
-                // Gatilho: FALHA NO SISTEMA (Curiosidade Extrema)
-                { class: 'style-glitch', text: '⚠️ FALHA NO APP: PREÇOS EM {CITY}' },
+                // Gatilho: ESTOQUE REGIONAL (Faz sentido logístico)
+                { class: 'style-logistics', text: '📍 ESTOQUE NO CD DE: {CITY}' },
                 
-                // Gatilho: ESTOQUE PARADO (Oportunidade)
-                { class: 'style-return', text: '📦 LOTE DE DEVOLUÇÃO: {CITY}' },
+                // Gatilho: DESISTÊNCIA (Ouro! Parece que você deu sorte de pegar um produto que voltou)
+                { class: 'style-opportunity', text: '♻️ ITEM DE DESISTÊNCIA EM: {CITY}' },
                 
-                // Gatilho: INJUSTIÇA/EXCLUSIVIDADE (Ego)
-                { class: 'style-alert', text: '🛑 PARE TUDO: BUG EM {CITY}' },
+                // Gatilho: CUPOM GEO (Parece algo exclusivo da região)
+                { class: 'style-coupon', text: '🎟️ CUPOM LIBERADO PARA: {CITY}' },
                 
-                // Gatilho: ESCASSEZ REAL (Medo de perder)
-                { class: 'style-urgent', text: '🔥 RESTAM 03 CAIXAS PARA: {CITY}' },
+                // Gatilho: ESCASSEZ ESPECÍFICA (Números quebrados passam verdade)
+                { class: 'style-urgent', text: '🔥 RESTAM 04 PACOTES EM: {CITY}' },
                 
-                // Gatilho: LOGÍSTICA (Imediatismo)
-                { class: 'style-success', text: '🚚 CAMINHÃO LIBERADO EM: {CITY}' }
+                // Gatilho: PRIORIDADE
+                { class: 'style-logistics', text: '🚚 FRETE PRIORITÁRIO P/: {CITY}' }
             ];
             
             const genericStrategies = [
-                // Gatilhos Genéricos (Quando não acha a cidade)
-                { class: 'style-glitch', text: '⚠️ ERRO 404: PREÇO ZERADO HOJE' },
-                { class: 'style-urgent', text: '🚨 ATENÇÃO: ESTOQUE SENDO QUEIMADO' },
-                { class: 'style-alert', text: '📦 SÓ HOJE: LISTA DE BUGS LIBERADA' },
-                { class: 'style-vip', text: '🔒 ACESSO RESTRITO: NÃO COMPARTILHE' }
+                // Genéricos que parecem verdade
+                { class: 'style-opportunity', text: '📦 SALDO DE ESTOQUE: LIBERADO' },
+                { class: 'style-coupon', text: '🎟️ CUPOM DE 80% ATIVO AGORA' },
+                { class: 'style-urgent', text: '🚨 ÚLTIMAS UNIDADES DO LOTE' },
+                { class: 'style-logistics', text: '⚡ ENVIO FULL: PRONTA ENTREGA' }
             ];
 
             fetch('https://get.geojs.io/v1/ip/geo.json')
