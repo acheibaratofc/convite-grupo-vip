@@ -10,7 +10,7 @@
     <style>
         /* --- ESTILO GERAL --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background: #f5f7fa; display: flex; flex-direction: column; align-items: center; min-height: 100vh; color: #333; padding: 0 15px 80px 15px; /* Padding bottom extra pro botão sticky */ }
+        body { background: #f5f7fa; display: flex; flex-direction: column; align-items: center; min-height: 100vh; color: #333; padding: 0 15px 80px 15px; }
 
         /* BARRA DE CRONÔMETRO RESERVADO */
         .timer-bar {
@@ -22,7 +22,7 @@
         .container {
             background: white; width: 100%; max-width: 420px; padding: 30px 20px;
             border-radius: 24px; box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05); 
-            text-align: center; position: relative; overflow: hidden; margin-top: 50px; /* Espaço pra barra */
+            text-align: center; position: relative; overflow: hidden; margin-top: 50px;
         }
 
         /* HEADER COM ONLINE E GEO */
@@ -70,8 +70,8 @@
         .btn-whatsapp:active { transform: translateY(4px); box-shadow: none; }
         .icon-wa { margin-right: 10px; font-size: 22px; }
         
-        /* BOTÃO TELEGRAM (Acesso Duplo) */
-        .btn-telegram { margin-top: 10px; display: inline-block; font-size: 12px; color: #0284c7; text-decoration: none; font-weight: 600; border-bottom: 1px solid #0284c7; }
+        /* BOTÃO TELEGRAM */
+        .btn-telegram { margin-top: 15px; display: inline-block; font-size: 13px; color: #0284c7; text-decoration: none; font-weight: 600; border-bottom: 1px solid #0284c7; padding-bottom: 2px; }
 
         /* FAQ (Sanfona) */
         .faq-section { margin-top: 25px; text-align: left; }
@@ -86,27 +86,24 @@
         /* RODAPÉ COM SELOS */
         .footer { margin-top: 30px; font-size: 10px; color: #aaa; line-height: 1.5; }
         .security-seals { display: flex; justify-content: center; gap: 10px; margin-top: 10px; opacity: 0.7; filter: grayscale(100%); }
-        .seal-img { height: 20px; }
 
-        /* --- ELEMENTOS FLUTUANTES --- */
-        
         /* NOTIFICAÇÕES */
         .notify-box { position: fixed; left: 50%; transform: translateX(-50%); background: white; padding: 8px 16px; border-radius: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 8px; z-index: 1000; border: 1px solid #f1f5f9; width: max-content; max-width: 90%; transition: all 0.5s; }
         #notify-offer { top: -100px; } 
-        #notify-person { bottom: -100px; } /* Ajustado para não cobrir o botão sticky */
+        #notify-person { bottom: -100px; } 
         .dot { width: 8px; height: 8px; border-radius: 50%; }
         .blue { background: #2563eb; box-shadow: 0 0 5px #2563eb; }
         .green { background: #16a34a; box-shadow: 0 0 5px #16a34a; }
         .n-text { font-size: 12px; font-weight: 600; color: #333; }
 
-        /* BOTÃO STICKY (RODAPÉ FIXO NO CELULAR) */
+        /* BOTÃO STICKY */
         .sticky-cta {
             position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 15px;
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 900; display: none; /* Aparece via JS */
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 900; display: none; 
             border-top: 1px solid #eee; animation: slideUp 0.5s ease-out;
         }
 
-        /* MODAL EXIT INTENT (POP-UP) */
+        /* MODAL EXIT INTENT */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; display: none; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
         .modal-box { background: white; width: 90%; max-width: 350px; padding: 25px; border-radius: 20px; text-align: center; animation: popIn 0.3s; position: relative; }
         .modal-title { font-size: 20px; font-weight: 900; color: #dc2626; margin-bottom: 10px; }
@@ -181,11 +178,11 @@
 
         <div style="margin-bottom: 10px; font-size: 12px; color: #2563eb; font-weight: 700;">🎁 Bônus: Tabela de Cupons liberada no fixado</div>
         
-        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" onclick="vibratePhone()">
+        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" onclick="vibratePhone()">
             <span class="icon-wa">➤</span> ENTRAR NO GRUPO AGORA
         </a>
 
-        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram">Prefiro entrar pelo Telegram</a>
+        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" target="_blank">Prefiro entrar pelo Telegram</a>
 
         <div class="faq-section">
             <div class="faq-title">Dúvidas Frequentes</div>
@@ -196,10 +193,6 @@
             <details>
                 <summary>É seguro comprar?</summary>
                 <div class="faq-answer">Sim. Só enviamos links de lojas oficiais (Shopee Oficial, Mercado Livre, Amazon).</div>
-            </details>
-            <details>
-                <summary>Tem muita mensagem?</summary>
-                <div class="faq-answer">O grupo é fechado (só adm manda mensagem). Enviamos cerca de 10 a 15 ofertas selecionadas por dia.</div>
             </details>
         </div>
 
@@ -218,7 +211,7 @@
     <div id="notify-person" class="notify-box"><div class="dot green"></div><span class="n-text" id="person-text">...</span></div>
 
     <div class="sticky-cta" id="sticky-cta">
-        <a href="https://chat.whatsapp.com/SEU_LINK_AQUI" class="btn-whatsapp" style="font-size: 15px; padding: 12px;" onclick="vibratePhone()">
+        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" style="font-size: 15px; padding: 12px;" onclick="vibratePhone()">
             ENTRAR NO GRUPO
         </a>
     </div>
@@ -228,16 +221,12 @@
             <div class="close-modal" onclick="closeModal()">×</div>
             <div class="modal-title">ESPERE! 😱</div>
             <p class="modal-p">Você vai perder sua vaga no <strong>Grupo VIP 03</strong> e o acesso aos cupons secretos.</p>
-            <a href="https://chat.whatsapp.com/SEU_LINK_AQUI" class="btn-modal" onclick="vibratePhone()">QUERO FICAR E ENTRAR</a>
+            <a href="https://whats.ly/acheibaratofc" class="btn-modal" target="_blank" onclick="vibratePhone()">QUERO FICAR E ENTRAR</a>
         </div>
     </div>
 
     <script>
-        // --- LINKS ---
-        const whatsLink = "https://chat.whatsapp.com/SEU_LINK_AQUI";
-
-        // 1. GEO-LOCALIZAÇÃO (Simulada/Fetch Leve)
-        // Tenta pegar IP real, se falhar, usa "Sua Região"
+        // 1. GEO-LOCALIZAÇÃO
         fetch('https://ipapi.co/json/')
             .then(res => res.json())
             .then(data => {
@@ -246,7 +235,7 @@
             })
             .catch(() => document.getElementById('geo-loc').innerText = "Ofertas liberadas no Brasil");
 
-        // 2. CRONÔMETRO REGRESSIVO (5 MINUTOS)
+        // 2. CRONÔMETRO
         function startTimer(duration, display) {
             let timer = duration, minutes, seconds;
             setInterval(function () {
@@ -255,7 +244,7 @@
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
                 display.textContent = minutes + ":" + seconds;
-                if (--timer < 0) timer = duration; // Reinicia se acabar
+                if (--timer < 0) timer = duration;
             }, 1000);
         }
         startTimer(300, document.querySelector('#timer'));
@@ -265,13 +254,13 @@
             if (navigator.vibrate) navigator.vibrate(50);
         }
 
-        // 4. NOTIFICAÇÃO FAVICON
+        // 4. FAVICON
         let originalTitle = document.title;
         setInterval(() => {
             document.title = document.title === originalTitle ? "(1) Nova Mensagem" : originalTitle;
         }, 2000);
 
-        // 5. NOTIFICAÇÕES DE OFERTA E PESSOAS (Lógica Inteligente)
+        // 5. NOTIFICAÇÕES
         function showOffer() {
             const n = document.getElementById('notify-offer');
             n.style.top = "50px";
@@ -279,7 +268,6 @@
         }
         setInterval(showOffer, 18000);
 
-        // Nomes sem repetição
         const names = ["Ana", "Bruna", "Carla", "Daniela", "Eduarda", "Fernanda", "Gabriela", "Júlia", "Larissa", "Mariana", "Patrícia", "Rafaela", "Beatriz", "Camila", "André", "Bruno", "Carlos", "Daniel", "Felipe", "Gustavo", "João", "Lucas", "Matheus", "Pedro", "Rafael", "Thiago"];
         const ddds = ["11", "21", "31", "41", "51", "61", "71", "81", "91", "19", "12", "85"];
         let availNames = [...names];
@@ -296,20 +284,18 @@
 
             t.innerHTML = `${nome} <span style="color:#888;font-weight:400">(${ddd}) ${num}-****</span> entrou`;
             
-            // Só mostra se não tiver o pop-up aberto
             if(document.getElementById('exit-modal').style.display !== 'flex') {
-                n.style.bottom = "80px"; // Acima do botão sticky
+                n.style.bottom = "80px"; 
                 setTimeout(() => n.style.bottom = "-100px", 4000);
             }
         }
         
-        // Loop aleatório de pessoas
         function loopPeople() {
             setTimeout(() => { showPerson(); loopPeople(); }, Math.random() * (10000 - 5000) + 5000);
         }
         setTimeout(loopPeople, 3000);
 
-        // 6. BOTÃO STICKY (Aparece ao rolar)
+        // 6. BOTÃO STICKY
         window.onscroll = function() {
             const sticky = document.getElementById('sticky-cta');
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -319,17 +305,15 @@
             }
         };
 
-        // 7. EXIT INTENT & BLOQUEIO DE VOLTAR (Black Hat)
-        // Pop-up ao tentar sair com o mouse (Desktop)
+        // 7. EXIT INTENT & BLOQUEIO VOLTAR
         document.addEventListener('mouseleave', (e) => {
             if (e.clientY < 0) document.getElementById('exit-modal').style.display = 'flex';
         });
 
-        // Bloqueio do botão Voltar (Mobile)
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             document.getElementById('exit-modal').style.display = 'flex';
-            history.pushState(null, null, location.href); // Empurra de novo pra travar
+            history.pushState(null, null, location.href); 
         };
 
         function closeModal() {
@@ -340,7 +324,7 @@
         setInterval(() => {
            const el = document.getElementById('viewers');
            let current = parseInt(el.innerText);
-           el.innerText = current + Math.floor(Math.random() * 3) - 1; // Oscila +1, 0 ou -1
+           el.innerText = current + Math.floor(Math.random() * 3) - 1;
         }, 5000);
 
     </script>
