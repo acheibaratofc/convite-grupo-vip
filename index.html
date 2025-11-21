@@ -6,7 +6,7 @@
     <title>Achei Barato - Comunidade Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* DESIGN CLEAN PREMIUM (Estilo Apple/Nubank) */
+        /* DESIGN PREMIUM (Apple Style) */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         body { 
             background: #f5f7fa; 
@@ -33,7 +33,6 @@
             border: 3px solid white; font-size: 14px;
         }
 
-        /* TAG TOPO */
         .tag-top {
             background: #e0f2fe; color: #0284c7; padding: 6px 14px; border-radius: 50px;
             font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
@@ -46,7 +45,7 @@
         p.subheadline { color: #555; font-size: 15px; line-height: 1.6; margin-bottom: 25px; font-weight: 500; }
         
         /* CARROSSEL */
-        .carousel-container { width: 100%; overflow: hidden; margin-bottom: 30px; padding: 10px 0; }
+        .carousel-container { width: 100%; overflow: hidden; margin-bottom: 25px; padding: 10px 0; }
         .carousel-track { display: flex; width: calc(140px * 14); animation: scroll 25s linear infinite; }
         .carousel-item {
             width: 130px; height: 130px; margin: 0 6px; border-radius: 16px;
@@ -56,11 +55,33 @@
         .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-140px * 7)); } }
 
+        /* --- BLOCO DE STATUS DOS GRUPOS (NOVO) --- */
+        .status-box {
+            background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px;
+            padding: 20px; margin-bottom: 25px; text-align: left;
+        }
+        .group-row {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 12px; font-size: 14px; color: #64748b; font-weight: 500;
+        }
+        .group-row:last-child { margin-bottom: 0; }
+        
+        /* Estilo para grupo lotado */
+        .group-full { text-decoration: line-through; opacity: 0.6; }
+        .badge-full { font-size: 10px; font-weight: 700; color: #94a3b8; border: 1px solid #cbd5e1; padding: 2px 6px; border-radius: 4px; }
+        
+        /* Estilo para grupo ativo */
+        .group-active { color: #0f172a; font-weight: 700; font-size: 15px; }
+        .badge-active { 
+            font-size: 10px; font-weight: 800; color: #15803d; 
+            background: #dcfce7; padding: 4px 8px; border-radius: 20px;
+            border: 1px solid #bbf7d0; animation: pulse-green-text 2s infinite;
+        }
+
         /* BENEFÍCIOS */
-        .benefits { text-align: left; margin-bottom: 30px; background: #f8fafc; padding: 20px; border-radius: 16px; }
-        .benefit-item { display: flex; align-items: center; margin-bottom: 12px; font-size: 14px; color: #444; font-weight: 500; }
-        .benefit-item:last-child { margin-bottom: 0; }
-        .check-icon { color: #16a34a; margin-right: 10px; font-weight: bold; background: #dcfce7; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; flex-shrink: 0;}
+        .benefits { text-align: left; margin-bottom: 30px; padding: 0 10px; }
+        .benefit-item { display: flex; align-items: center; margin-bottom: 10px; font-size: 13px; color: #555; font-weight: 500; }
+        .check-icon { color: #2563eb; margin-right: 8px; font-weight: bold; }
 
         /* BOTÃO WHATSAPP */
         .btn-whatsapp {
@@ -79,28 +100,23 @@
             70% { box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
             100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
         }
+        @keyframes pulse-green-text { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
 
         .footer { margin-top: 30px; font-size: 11px; color: #aaa; line-height: 1.5; }
 
-        /* ESTILO DAS NOTIFICAÇÕES (TOPO E RODAPÉ) */
+        /* NOTIFICAÇÕES */
         .notify-box {
             position: fixed; left: 50%; transform: translateX(-50%); 
             background: white; padding: 10px 20px; border-radius: 50px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 10px; 
-            z-index: 100; border: 1px solid #eee; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            width: max-content; max-width: 90%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 10px; 
+            z-index: 100; border: 1px solid #f1f5f9; width: max-content; max-width: 90%;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
-        
-        /* Notificação de Oferta (Topo) */
         #notify-offer { top: -100px; } 
-        /* Notificação de Pessoa (Rodapé) */
         #notify-person { bottom: -100px; }
-
         .notify-dot-green { width: 10px; height: 10px; background: #16a34a; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 5px #16a34a; }
         .notify-dot-blue { width: 10px; height: 10px; background: #2563eb; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 5px #2563eb; }
-        
         .notify-text { font-size: 13px; font-weight: 600; color: #333; }
-        .notify-sub { font-size: 11px; color: #666; margin-left: 5px; font-weight: 400; }
     </style>
 </head>
 <body>
@@ -135,19 +151,25 @@
             </div>
         </div>
 
+        <div class="status-box">
+            <div class="group-row group-full">
+                <span>Grupo VIP 01</span>
+                <span class="badge-full">ESGOTADO</span>
+            </div>
+            <div class="group-row group-full">
+                <span>Grupo VIP 02</span>
+                <span class="badge-full">ESGOTADO</span>
+            </div>
+            <div class="group-row group-active">
+                <span>Grupo VIP 03</span>
+                <span class="badge-active">ABERTO HOJE</span>
+            </div>
+        </div>
+
         <div class="benefits">
-            <div class="benefit-item">
-                <div class="check-icon">✓</div>
-                <span>Curadoria humana (nada de robô chato)</span>
-            </div>
-            <div class="benefit-item">
-                <div class="check-icon">✓</div>
-                <span>Verificamos a reputação do vendedor</span>
-            </div>
-            <div class="benefit-item">
-                <div class="check-icon">✓</div>
-                <span>Apenas lojas oficiais e seguras</span>
-            </div>
+            <div class="benefit-item"><span class="check-icon">✓</span> Curadoria humana (sem robôs chatos)</div>
+            <div class="benefit-item"><span class="check-icon">✓</span> Verificamos a reputação do vendedor</div>
+            <div class="benefit-item"><span class="check-icon">✓</span> Apenas lojas oficiais e seguras</div>
         </div>
 
         <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp">
@@ -172,50 +194,59 @@
     </div>
 
     <script>
-        // --- 1. LÓGICA DA NOVA OFERTA (TOPO) ---
+        // --- 1. NOTIFICAÇÃO DE OFERTA (TOPO) ---
         function showOfferNotify() {
             const notify = document.getElementById('notify-offer');
-            notify.style.top = "20px"; // Desce
-            setTimeout(() => { notify.style.top = "-100px"; }, 4000); // Sobe e esconde
+            notify.style.top = "20px";
+            setTimeout(() => { notify.style.top = "-100px"; }, 4000);
         }
-        // Mostra a cada 15 segundos
-        setInterval(showOfferNotify, 15000);
+        setInterval(showOfferNotify, 20000); // A cada 20s
         
-        // --- 2. LÓGICA DE PESSOAS ENTRANDO (RODAPÉ) ---
-        const names = ["Camila", "Lucas", "Fernanda", "Rafael", "Bruna", "Thiago", "Ana", "Marcos", "Júlia", "Pedro", "Larissa", "Gustavo"];
-        const ddds = ["11", "21", "31", "41", "51", "19", "13", "62", "81", "85"];
+        // --- 2. BANCO DE DADOS GIGANTE (PESSOAS ENTRANDO) ---
+        const firstNames = [
+            "Ana", "Bruna", "Carla", "Daniela", "Eduarda", "Fernanda", "Gabriela", "Heloísa", "Isabela", "Júlia", 
+            "Karina", "Larissa", "Mariana", "Natália", "Olívia", "Patrícia", "Rafaela", "Sabrina", "Tatiane", "Vanessa", 
+            "Beatriz", "Camila", "Débora", "Eliane", "Fabiana", "Giovana", "Helena", "Ivana", "Joana", "Kelly",
+            "André", "Bruno", "Carlos", "Daniel", "Eduardo", "Felipe", "Gustavo", "Henrique", "Igor", "João", 
+            "Lucas", "Matheus", "Nicolas", "Pedro", "Rafael", "Samuel", "Thiago", "Vitor", "William", "Xavier",
+            "Arthur", "Bernardo", "Caio", "Davi", "Enzo", "Francisco", "Gabriel", "Heitor", "Isaac", "Jorge"
+        ];
+        
+        const ddds = ["11", "12", "13", "19", "21", "22", "24", "31", "32", "41", "42", "47", "48", "51", "53", "61", "62", "71", "81", "85", "91", "92"];
         
         function showPersonNotify() {
             const notify = document.getElementById('notify-person');
             const textElem = document.getElementById('person-text');
             
-            // Gera dados aleatórios
-            const nome = names[Math.floor(Math.random() * names.length)];
+            // Sorteia dados
+            const nome = firstNames[Math.floor(Math.random() * firstNames.length)];
             const ddd = ddds[Math.floor(Math.random() * ddds.length)];
-            const part1 = Math.floor(Math.random() * (9999 - 9100 + 1) + 9100); // Gera algo tipo 9854
             
-            // Monta o texto: Camila (11) 9854-**** entrou
+            // Gera número aleatório (9xxxx)
+            const part1 = Math.floor(Math.random() * (9999 - 9100 + 1) + 9100);
+            
+            // Monta o texto
             textElem.innerHTML = `${nome} <span style="color:#888; font-weight:400;">(${ddd}) ${part1}-****</span> entrou`;
             
-            // Mostra a notificação
-            notify.style.bottom = "20px"; // Sobe
+            // Mostra
+            notify.style.bottom = "20px";
             
-            // Esconde depois de 4 segundos
+            // Esconde
             setTimeout(() => { notify.style.bottom = "-100px"; }, 4000);
         }
 
-        // Loop aleatório para pessoas entrando (entre 4 e 8 segundos)
+        // Loop aleatório entre 5 e 12 segundos (mais natural)
         function loopPeople() {
-            const randTime = Math.floor(Math.random() * (8000 - 4000 + 1) + 4000);
+            const randTime = Math.floor(Math.random() * (12000 - 5000 + 1) + 5000);
             setTimeout(() => {
                 showPersonNotify();
                 loopPeople();
             }, randTime);
         }
         
-        // Inicia os loops
-        setTimeout(showOfferNotify, 2000); // Primeira oferta aparece rápido
-        setTimeout(loopPeople, 4000);      // Primeira pessoa aparece depois
+        // Inicia
+        setTimeout(showOfferNotify, 2000); 
+        setTimeout(loopPeople, 4000);
     </script>
 </body>
 </html>
