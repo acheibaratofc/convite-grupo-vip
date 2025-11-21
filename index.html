@@ -113,6 +113,19 @@
         h1 span { color: var(--color-primary); }
         p.subheadline { color: #475569; font-size: 15px; line-height: 1.5; margin-bottom: 24px; font-weight: 500; }
 
+        /* --- TRUST BADGES (NOVO: BLOCO DE CONFIANÇA) --- */
+        .trust-badges { 
+            display: flex; justify-content: space-between; gap: 8px; margin-bottom: 28px; 
+        }
+        .trust-item { 
+            background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 12px; 
+            padding: 12px 4px; width: 32%; text-align: center; 
+            display: flex; flex-direction: column; align-items: center; 
+        }
+        .trust-icon { font-size: 22px; margin-bottom: 6px; }
+        .trust-text h4 { font-size: 10px; font-weight: 900; color: var(--color-text); margin-bottom: 2px; text-transform: uppercase; }
+        .trust-text p { font-size: 9px; color: var(--color-text-light); line-height: 1.2; font-weight: 500; }
+
         /* --- CARROSSEL INFINITO --- */
         .carousel-container { width: 100%; overflow: hidden; margin-bottom: 28px; padding: 5px 0; -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
         .carousel-track { display: flex; width: calc(130px * 14); animation: scroll 30s linear infinite; will-change: transform; }
@@ -282,6 +295,30 @@
         
         <h1>Ofertas Reais <br><span>Sem Pegadinhas</span></h1>
         <p class="subheadline">Nossa equipe monitora a Shopee e Mercado Livre 24h por dia para encontrar promoções com <strong>até 80% de desconto</strong>.</p>
+
+        <section class="trust-badges">
+            <div class="trust-item">
+                <div class="trust-icon">⭐</div>
+                <div class="trust-text">
+                    <h4>Nota Alta</h4>
+                    <p>Só Vendedores 4.8+</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🛡️</div>
+                <div class="trust-text">
+                    <h4>Links Oficiais</h4>
+                    <p>Shopee/ML Seguro</p>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">📸</div>
+                <div class="trust-text">
+                    <h4>Validado</h4>
+                    <p>Reviews com Fotos</p>
+                </div>
+            </div>
+        </section>
 
         <section class="carousel-container">
             <div class="carousel-track">
