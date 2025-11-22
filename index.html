@@ -185,6 +185,30 @@
             border-radius: 4px; box-shadow: var(--shadow-sm); text-transform: uppercase; 
         }
 
+        /* >>> MELHORIA 1: CSS DO BÔNUS, LINK TELEGRAM E TAP HINT <<< */
+        /* MELHORIA DO BÔNUS (Visual de Presente) */
+        .bonus-box {
+            background: #fffbeb; border: 1px dashed #f59e0b; border-radius: 12px;
+            padding: 12px; margin-bottom: 16px; text-align: center;
+            animation: pulse-border 3s infinite;
+        }
+        .bonus-title { font-size: 13px; font-weight: 800; color: #b45309; display: block; margin-bottom: 4px; }
+        .bonus-desc { font-size: 11px; color: #92400e; }
+
+        /* MELHORIA DO LINK TELEGRAM (Discreto) */
+        .link-telegram {
+            display: block; margin-top: 15px; font-size: 12px; color: #64748b; 
+            text-decoration: underline; font-weight: 500; cursor: pointer;
+        }
+        .link-telegram:hover { color: #3b82f6; }
+
+        /* AVISO NO CARROSSEL */
+        .tap-hint {
+            position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%);
+            background: rgba(0,0,0,0.7); color: white; font-size: 8px; padding: 2px 6px;
+            border-radius: 4px; white-space: nowrap; pointer-events: none;
+        }
+
         /* Status Box */
         .status-box { 
             background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; 
@@ -236,13 +260,6 @@
             animation: shine 3s infinite; will-change: left;
         }
         .icon-wa { margin-right: 10px; font-size: 22px; }
-        
-        .btn-telegram { 
-            margin-top: 16px; display: inline-block; font-size: 13px; color: #3b82f6; 
-            text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; 
-            transition: border-color 0.2s; padding: 10px 20px; cursor: pointer;
-        }
-        .btn-telegram:hover { border-color: #3b82f6; }
 
         /* FAQ */
         .faq-section { margin-top: 32px; text-align: left; width: 100%; }
@@ -372,6 +389,7 @@
             <div class="carousel-track">
                 <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item" onclick="vibratePhone()">
                     <img src="promo1.jpg" alt="Promo 1" width="120" height="120" loading="lazy">
+                    <div class="tap-hint">👆 Ver Preço</div>
                 </a>
                 
                 <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item" onclick="vibratePhone()">
@@ -381,10 +399,12 @@
                 
                 <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item" onclick="vibratePhone()">
                     <img src="promo3.jpg" alt="Promo 3" width="120" height="120" loading="lazy">
+                    <div class="tap-hint">👆 Ver Preço</div>
                 </a>
                 
                 <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item" onclick="vibratePhone()">
                     <img src="promo4.jpg" alt="Promo 4" width="120" height="120" loading="lazy">
+                    <div class="tap-hint">👆 Ver Preço</div>
                 </a>
                 
                 <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item" onclick="vibratePhone()">
@@ -402,6 +422,7 @@
 
                 <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item" onclick="vibratePhone()">
                     <img src="promo1.jpg" alt="Promo 1" loading="lazy">
+                    <div class="tap-hint">👆 Ver Preço</div>
                 </a>
                 <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item" onclick="vibratePhone()">
                     <img src="promo2.jpg" alt="Promo 2" loading="lazy">
@@ -430,7 +451,10 @@
             <div class="group-row group-active"><span>Grupo VIP 03</span><span class="badge-active">ABERTO HOJE</span></div>
         </section>
 
-        <div class="bonus-text">🎁 Bônus: Tabela de Cupons liberada no fixado</div>
+        <div class="bonus-box">
+            <span class="bonus-title">🎁 BÔNUS LIBERADO:</span>
+            <span class="bonus-desc">Entre agora e baixe a <strong>Tabela Secreta de Cupons</strong> na mensagem fixada.</span>
+        </div>
         
         <div style="text-align: center; margin-bottom: 8px; animation: bounce 1s infinite; font-size: 20px;">👇</div>
 
@@ -438,8 +462,8 @@
             <span class="icon-wa">➤</span> RECEBER PROMOÇÕES GRÁTIS NO ZAP
         </a>
 
-        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
-           Prefiro entrar pelo Telegram
+        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="link-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
+            Tenho Telegram? Clique aqui para entrar
         </a>
 
         <section class="author-box">
@@ -502,19 +526,19 @@
 // 1. GEO-LOCALIZAÇÃO REALISTA (NÍVEL EXPERT)
             const cityStrategies = [
                 // Gatilho: ESTOQUE REGIONAL (Faz sentido logístico)
-                { class: 'style-logistics', text: '📍 ESTOQUE NO CD DE: {CITY}' },
+                { class: 'style-logistics', text: '⚡ CONDIÇÕES ESPECIAIS PARA: {CITY}' },
                 
                 // Gatilho: DESISTÊNCIA (Ouro! Parece que você deu sorte de pegar um produto que voltou)
-                { class: 'style-opportunity', text: '♻️ ITEM DE DESISTÊNCIA EM: {CITY}' },
+                { class: 'style-opportunity', text: '⚡ PREÇOS EM OFERTA RELÂMPAGO PARA: {CITY}' },
                 
                 // Gatilho: CUPOM GEO (Parece algo exclusivo da região)
-                { class: 'style-coupon', text: '🎟️ CUPOM LIBERADO PARA: {CITY}' },
+                { class: 'style-coupon', text: '🎟️ CUPONS LIBERADO PARA: {CITY}' },
                 
                 // Gatilho: ESCASSEZ ESPECÍFICA (Números quebrados passam verdade)
-                { class: 'style-urgent', text: '🔥 RESTAM 04 PACOTES EM: {CITY}' },
+                { class: 'style-urgent', text: '🔥 RESTAM POUCAS VAGAS PARA O GRUPO 3 EM: {CITY}' },
                 
                 // Gatilho: PRIORIDADE
-                { class: 'style-logistics', text: '🚚 FRETE PRIORITÁRIO P/: {CITY}' }
+                { class: 'style-logistics', text: '🚚 FRETE PRIORITÁRIO PARA: {CITY}' }
             ];
             
             const genericStrategies = [
