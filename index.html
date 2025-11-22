@@ -522,6 +522,15 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            // DATA DINÂMICA
+            const dataHoje = new Date();
+            const dia = String(dataHoje.getDate()).padStart(2, '0');
+            const mes = String(dataHoje.getMonth() + 1).padStart(2, '0');
+            // Verifica se o elemento existe antes de inserir para evitar erros
+            const elData = document.getElementById('data-hoje');
+            if(elData) elData.innerText = `(${dia}/${mes})`;
+            // --------------------------------------
             
 // 1. GEO-LOCALIZAÇÃO REALISTA (NÍVEL EXPERT)
             const cityStrategies = [
