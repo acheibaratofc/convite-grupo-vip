@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Acesso VIP - Achei Barato</title>
+    <title>Achei Barato - Vagas Limitadas</title>
+    
+    <meta property="og:image" content="logo.jpg">
     
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -13,87 +15,167 @@
         })(window, document, "clarity", "script", "u9pht0namf");
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        :root { --primary: #25D366; --dark: #0c121c; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
         
         body {
-            background-color: #f0f2f5;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            min-height: 100vh; padding: 20px; text-align: center;
+            /* O DEGRADÊ AGRESSIVO DA IMAGEM */
+            background: linear-gradient(180deg, #81d34d 0%, #81d34d 10%, #ff69b4 10%, #ff69b4 60%, #ff6b00 100%);
+            min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+            text-align: center; color: white; padding-bottom: 80px;
         }
 
-        .card {
-            background: white; width: 100%; max-width: 400px;
-            padding: 40px 25px; border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        /* FAIXA DO TOPO */
+        .top-bar {
+            width: 100%; background: #70c040; padding: 10px;
+            font-size: 14px; font-weight: 900; color: #004d00; text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 100%; max-width: 500px; padding: 20px;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        .avatar-container { position: relative; margin-bottom: 20px; }
-        .avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
-        .verified { 
-            position: absolute; bottom: 0; right: 0; background: #1da1f2; color: white; 
-            width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; 
-            justify-content: center; font-size: 12px; border: 2px solid white;
+        /* TEXTOS */
+        h1 { font-size: 22px; font-weight: 900; margin-top: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); line-height: 1.3; }
+        h2 { font-size: 18px; margin: 15px 0; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+
+        /* CAIXA DE VAGAS (Cinza igual da imagem) */
+        .vagas-box {
+            background: #e0e0e0; color: #333; width: 100%; padding: 15px;
+            border-radius: 8px; margin: 10px 0; font-weight: 700;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .counter-area { margin: 20px 0; }
+        .counter-label { font-size: 14px; font-weight: 900; color: #333; text-transform: uppercase; display: block; margin-bottom: 5px; }
+        .counter-number { 
+            font-size: 60px; font-weight: 900; color: #000; 
+            line-height: 1; letter-spacing: -2px;
         }
 
-        h1 { font-size: 22px; color: #333; line-height: 1.3; margin-bottom: 10px; }
-        p { font-size: 14px; color: #666; margin-bottom: 30px; line-height: 1.5; }
+        /* BOTÃO NEON GIGANTE */
+        .btn-neon {
+            background: #8df73b; color: #004d00; text-decoration: none;
+            width: 100%; padding: 25px 10px; border-radius: 10px;
+            font-size: 20px; font-weight: 900; text-transform: uppercase;
+            box-shadow: 0 5px 0 #5fa822, 0 15px 20px rgba(0,0,0,0.3);
+            margin: 20px 0; display: block; animation: pulse 1.5s infinite;
+            border: 2px solid #fff;
+        }
+        .btn-neon:active { transform: translateY(4px); box-shadow: 0 1px 0 #5fa822; }
 
-        .geo-badge {
-            background: #e0f2f1; color: #00695c; padding: 5px 15px; 
-            border-radius: 50px; font-size: 12px; font-weight: 700; 
-            margin-bottom: 20px; text-transform: uppercase; display: inline-block;
+        /* FOTO DA LAIS (Para manter a conexão) */
+        .author-section {
+            margin-top: 20px; display: flex; flex-direction: column; align-items: center;
+        }
+        .author-img {
+            width: 80px; height: 80px; border-radius: 50%; border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 10px;
+        }
+        .author-name { font-size: 16px; font-weight: 700; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+
+        /* NOTIFICAÇÃO RODAPÉ (Igual da imagem) */
+        .notify-toast {
+            position: fixed; bottom: 20px; right: 20px;
+            background: #8df73b; color: #000; padding: 10px 20px;
+            border-radius: 5px; font-weight: 900; font-size: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase;
+            animation: slideIn 0.5s ease-out; z-index: 100;
         }
 
-        .btn {
-            background: var(--primary); color: white; text-decoration: none;
-            font-size: 18px; font-weight: 800; padding: 20px; width: 100%;
-            border-radius: 12px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: transform 0.2s; text-transform: uppercase;
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            animation: pulse 2s infinite;
+        /* BOTÃO TELEGRAM (Discreto no fundo laranja) */
+        .btn-telegram {
+            color: white; text-decoration: underline; font-size: 14px; margin-top: 20px; display: block;
         }
-        .btn:active { transform: scale(0.98); }
 
-        .safe-text { margin-top: 20px; font-size: 11px; color: #999; display: flex; align-items: center; gap: 5px; justify-content: center; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
 
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="avatar-container">
-            <img src="logo.jpg" alt="Laís" class="avatar" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
-            <div class="verified">✓</div>
+    <div class="top-bar">PARTICIPE DO GRUPO DE FORMA GRATUITA</div>
+
+    <div class="container">
+        
+        <h1>NÃO PERCA AS MELHORES PROMOÇÕES, BUGS E CUPONS DA SHOPEE</h1>
+        
+        <h2>RECEBA TUDO NO SEU WHATSAPP</h2>
+
+        <div class="vagas-box">
+            GRUPO VIP 03: Vagas limitadas!
         </div>
 
-        <div id="geo" class="geo-badge">📍 Acesso liberado</div>
+        <div class="counter-area">
+            <span class="counter-label">AINDA RESTAM</span>
+            <span class="counter-number" id="vagas">19</span>
+            <span class="counter-label" style="font-size: 24px;">VAGAS</span>
+        </div>
 
-        <h1>Você está quase lá!</h1>
-        
-        <p>O link da oferta que você viu no vídeo está salvo na <strong>mensagem fixada</strong> do nosso Grupo VIP.</p>
-
-        <a href="https://whats.ly/acheibaratofc" class="btn" target="_blank" rel="noopener noreferrer">
-            Entrar e Ver Oferta
+        <a href="https://whats.ly/acheibaratofc" class="btn-neon" target="_blank" rel="noopener noreferrer" onclick="vibratePhone()">
+            CLIQUE AQUI PARA ENTRAR AGORA
         </a>
 
-        <div class="safe-text">
-            🔒 Grupo Silencioso e Seguro (Sem Spam)
+        <p style="font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">JÁ SOMOS + DE 50 MIL MEMBROS!</p>
+
+        <div class="author-section">
+            <img src="eu.png" alt="Laís" class="author-img" onerror="this.style.display='none'">
+            <div class="author-name">Admin: Laís</div>
         </div>
+
+        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
+            Prefiro entrar pelo Telegram
+        </a>
+
+        <div style="margin-top: 40px; font-size: 10px; opacity: 0.8;">
+            Todos os Direitos Reservados | Achei Barato Oficial
+        </div>
+
     </div>
 
+    <div id="toast" class="notify-toast">BRUNA ENTROU NO GRUPO</div>
+
     <script>
-        // Geo Simples e Rápida
-        fetch('https://get.geojs.io/v1/ip/geo.json')
-            .then(res => res.json())
-            .then(data => {
-                if(data.city) document.getElementById('geo').innerText = `📍 Acesso liberado para: ${data.city}`;
-            });
+        // LÓGICA DE VAGAS DIMINUINDO
+        let vagas = 19;
+        const vagasEl = document.getElementById('vagas');
+        
+        setInterval(() => {
+            if(vagas > 3) {
+                // Chance de 30% de diminuir a cada 2 segundos
+                if(Math.random() > 0.7) {
+                    vagas--;
+                    vagasEl.innerText = vagas;
+                    // Toca vibração se possível
+                    if(navigator.vibrate) navigator.vibrate(50);
+                }
+            }
+        }, 2000);
+
+        // LÓGICA DA NOTIFICAÇÃO (Nomes reais)
+        const names = ["BRUNA", "CARLA", "ANA", "JULIA", "PATRICIA", "FERNANDA", "MARIA", "ALINE"];
+        const toast = document.getElementById('toast');
+
+        setInterval(() => {
+            const name = names[Math.floor(Math.random() * names.length)];
+            toast.innerText = `${name} ENTROU NO GRUPO`;
+            toast.style.display = 'block';
+            
+            // Esconde depois de 3s
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+            
+        }, 5000); // Aparece a cada 5 segundos
+
+        function vibratePhone() {
+            if(navigator.vibrate) navigator.vibrate(50);
+        }
     </script>
 
 </body>
