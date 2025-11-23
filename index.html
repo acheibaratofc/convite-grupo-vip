@@ -2,10 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <title>Achei Barato - Vagas Limitadas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VAGAS ABERTAS - ENTRE AGORA</title>
     
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -21,209 +19,202 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; -webkit-tap-highlight-color: transparent; }
         
         body {
-            /* O DEGRADÊ AGRESSIVO */
-            background: linear-gradient(180deg, #81d34d 0%, #81d34d 8%, #ff69b4 8%, #ff69b4 60%, #ff6b00 100%);
+            /* DEGRADÊ AGRESSIVO (ROSA PARA LARANJA) - GATILHO DE PROMOÇÃO */
+            background: linear-gradient(180deg, #ff69b4 0%, #ff4500 100%);
             min-height: 100vh; display: flex; flex-direction: column; align-items: center;
-            color: white; padding-bottom: 80px; text-align: center;
+            color: white; text-align: center; padding: 20px 15px 80px 15px;
         }
 
-        /* BARRA TOPO */
-        .top-bar {
-            width: 100%; background: #5fa822; padding: 12px;
-            font-size: 13px; font-weight: 900; color: #0c3800; text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100;
+        /* LOGO/AVATAR */
+        .header-avatar {
+            margin-bottom: 10px;
+        }
+        .avatar-img {
+            width: 90px; height: 90px; border-radius: 50%; 
+            border: 4px solid #adff2f; /* Borda Verde Neon */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); object-fit: cover;
         }
 
-        .container {
-            width: 100%; max-width: 480px; padding: 20px;
-            display: flex; flex-direction: column; align-items: center;
-        }
-
-        /* TEXTOS DE IMPACTO */
+        /* TEXTOS (TÍTULO MENOR PARA DAR ESPAÇO AO BOTÃO) */
         h1 { 
-            font-size: 22px; font-weight: 900; margin-top: 20px; 
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3); line-height: 1.3; 
-            text-transform: uppercase; 
-        }
-        h2 { 
-            font-size: 18px; margin: 15px 0; font-weight: 700; 
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2); 
-        }
-
-        /* GEO LOCALIZAÇÃO (VISUAL DE SISTEMA) */
-        .geo-badge {
-            background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 50px;
-            font-size: 11px; font-weight: 700; margin-bottom: 10px;
-            border: 1px solid rgba(255,255,255,0.5); text-transform: uppercase;
-        }
-
-        /* CAIXA DE VAGAS */
-        .vagas-box {
-            background: #e0e0e0; color: #333; width: 100%; padding: 12px;
-            border-radius: 8px; margin: 10px 0; font-weight: 700; font-size: 14px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); border: 2px solid #fff;
+            font-size: 18px; font-weight: 900; margin-bottom: 15px; 
+            text-transform: uppercase; text-shadow: 0 2px 2px rgba(0,0,0,0.2);
+            line-height: 1.3; max-width: 90%;
         }
         
-        .counter-area { margin: 15px 0; animation: pulse-text 2s infinite; }
-        .counter-label { font-size: 14px; font-weight: 900; color: #fff; text-transform: uppercase; display: block; margin-bottom: -5px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        .counter-number { 
-            font-size: 70px; font-weight: 900; color: #fff; 
-            line-height: 1; letter-spacing: -3px; text-shadow: 0 4px 0 rgba(0,0,0,0.2);
+        /* CAIXA DE VAGAS (O DESTAQUE) */
+        .vagas-container {
+            background: rgba(0,0,0,0.15); border-radius: 15px; padding: 15px;
+            width: 100%; max-width: 400px; margin-bottom: 20px; border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .vagas-text { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+        
+        .counter { 
+            font-size: 65px; font-weight: 900; color: #adff2f; /* Verde Neon */
+            line-height: 0.9; letter-spacing: -2px; text-shadow: 2px 2px 0px #000;
         }
 
-        /* BOTÃO NEON GIGANTE */
+        /* BOTÃO GIGANTE (O REI DA TELA) */
         .btn-neon {
-            background: #8df73b; color: #004d00; text-decoration: none;
-            width: 100%; padding: 20px 10px; border-radius: 12px;
-            font-size: 20px; font-weight: 900; text-transform: uppercase;
-            box-shadow: 0 6px 0 #5fa822, 0 15px 20px rgba(0,0,0,0.3);
-            margin: 20px 0; display: block; animation: shake 3s infinite;
-            border: 3px solid #fff; position: relative; overflow: hidden;
+            background: #adff2f; color: #000; text-decoration: none;
+            width: 100%; max-width: 400px; padding: 20px 10px; border-radius: 12px;
+            font-size: 22px; font-weight: 900; text-transform: uppercase;
+            box-shadow: 0 6px 0 #5fa822, 0 15px 20px rgba(0,0,0,0.2);
+            display: block; animation: pulse 1.2s infinite;
+            border: 3px solid white; position: relative; overflow: hidden;
         }
         .btn-neon:active { transform: translateY(4px); box-shadow: 0 2px 0 #5fa822; }
-        /* Efeito de brilho passando */
-        .btn-neon::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            animation: shine 2.5s infinite;
+        .btn-sub { display: block; font-size: 10px; margin-top: 5px; font-weight: 700; opacity: 0.8; }
+
+        /* CARROSSEL (VITRINE ARMADILHA) */
+        .carousel-title { 
+            font-size: 12px; font-weight: 900; background: #fff; color: #ff4500; 
+            display: inline-block; padding: 4px 10px; border-radius: 4px; 
+            margin: 25px 0 10px 0; text-transform: uppercase; transform: rotate(-2deg);
         }
 
-        /* CARROSSEL (LINK TRAP) */
-        .carousel-container { width: 100%; overflow: hidden; margin: 20px 0; background: rgba(255,255,255,0.1); padding: 10px 0; border-radius: 10px; }
+        .carousel-container { width: 100%; overflow: hidden; padding: 5px 0; }
         .carousel-track { display: flex; width: calc(110px * 14); animation: scroll 25s linear infinite; }
-        .carousel-item { width: 100px; height: 100px; margin: 0 5px; border-radius: 10px; overflow: hidden; border: 2px solid white; position: relative; }
-        .carousel-item img { width: 100%; height: 100%; object-fit: contain; background: white; }
-
-        /* LAÍS (AUTORIDADE) */
-        .author-section {
-            margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;
-            background: rgba(0,0,0,0.2); padding: 10px 20px; border-radius: 50px;
+        
+        /* FOTO CLICÁVEL */
+        a.carousel-item { 
+            display: block; text-decoration: none; width: 100px; height: 100px; 
+            margin: 0 5px; border-radius: 10px; overflow: hidden; 
+            border: 2px solid white; background: white; position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .author-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid white; }
-        .author-text { text-align: left; font-size: 12px; line-height: 1.2; }
+        .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
+        
+        .tap-hint {
+            position: absolute; bottom: 0; left: 0; width: 100%; 
+            background: rgba(0,0,0,0.8); color: #adff2f; font-size: 9px; 
+            font-weight: 700; padding: 3px 0; text-transform: uppercase;
+        }
+
+        /* PROVA SOCIAL */
+        .social-proof { margin-top: 20px; font-size: 12px; font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,0.3); }
+
+        /* TELEGRAM */
+        .btn-telegram { 
+            color: white; text-decoration: underline; font-size: 13px; 
+            margin-top: 20px; display: block; font-weight: 600;
+        }
 
         /* NOTIFICAÇÃO RODAPÉ */
         .notify-toast {
-            position: fixed; bottom: 20px; right: 20px;
-            background: #8df73b; color: #004d00; padding: 10px 20px;
-            border-radius: 50px; font-weight: 900; font-size: 11px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4); text-transform: uppercase;
-            z-index: 100; display: flex; align-items: center; gap: 8px;
-            transform: translateY(100px); transition: transform 0.5s; border: 2px solid white;
+            position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: #fff; color: #000; padding: 8px 20px; width: 90%; max-width: 350px;
+            border-radius: 50px; font-weight: 800; font-size: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase;
+            z-index: 100; display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: transform 0.5s; border: 2px solid #adff2f;
         }
-        .online-dot { width: 8px; height: 8px; background: #004d00; border-radius: 50%; animation: blink 1s infinite; }
+        .dot { width: 8px; height: 8px; background: #00c853; border-radius: 50%; animation: blink 1s infinite; }
 
-        /* TELEGRAM */
-        .btn-telegram { color: white; text-decoration: underline; font-size: 13px; margin-top: 15px; display: block; opacity: 0.9; }
-
-        /* ANIMAÇÕES */
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-110px * 7)); } }
-        @keyframes pulse-text { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); } 20%, 40%, 60%, 80% { transform: translateX(2px); } }
-        @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
         @keyframes blink { 50% { opacity: 0; } }
 
     </style>
 </head>
 <body>
 
-    <div class="top-bar">PARTICIPE DO GRUPO DE FORMA GRATUITA</div>
-
     <div class="container">
         
-        <div class="geo-badge" id="geo-loc">🌎 CARREGANDO LOCALIZAÇÃO...</div>
-
-        <h1>NÃO PERCA MAIS AS MELHORES PROMOÇÕES, BUGS E CUPONS</h1>
-        
-        <h2>RECEBA TUDO NO SEU WHATSAPP</h2>
-
-        <div class="vagas-box">
-            GRUPO VIP 03: Vagas limitadas!
+        <div class="header-avatar">
+            <img src="logo.jpg" alt="Laís" class="avatar-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
+            <div style="font-size: 11px; font-weight: 700; margin-top: 5px;">@acheibaratofc</div>
         </div>
 
-        <div class="counter-area">
-            <span class="counter-label">AINDA RESTAM</span>
-            <span class="counter-number" id="vagas">19</span>
-            <span class="counter-label" style="font-size: 20px;">VAGAS</span>
+        <h1>Não perca as Melhores Promoções e Bugs da Shopee</h1>
+        
+        <div class="vagas-container">
+            <div class="vagas-text">Grupo VIP 03 - Restam apenas:</div>
+            <div class="counter"><span id="vagas">19</span> VAGAS</div>
+            <div style="font-size: 10px; margin-top: 5px; opacity: 0.8;">(Atualizado agora em tempo real)</div>
         </div>
 
         <a href="https://whats.ly/acheibaratofc" class="btn-neon" target="_blank" rel="noopener noreferrer" onclick="if(navigator.vibrate) navigator.vibrate(50)">
-            CLIQUE AQUI PARA ENTRAR AGORA
+            ENTRAR NO GRUPO AGORA
+            <span class="btn-sub">CLIQUE AQUI - É 100% GRÁTIS</span>
         </a>
 
-        <p style="font-size: 12px; font-weight: bold; margin-bottom: 5px;">👇 CLIQUE NOS PRODUTOS PARA VER O PREÇO 👇</p>
+        <div class="carousel-title">👇 Veja o que já postamos hoje 👇</div>
+        
         <div class="carousel-container">
             <div class="carousel-track">
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo1.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo2.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo3.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo4.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo5.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo6.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo7.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo1.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo2.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo3.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo4.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo5.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo6.jpg"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo7.jpg"></a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
+                    <img src="promo1.jpg">
+                    <div class="tap-hint">VER PREÇO</div>
+                </a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
+                    <img src="promo2.jpg">
+                    <div class="tap-hint">VER PREÇO</div>
+                </a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
+                    <img src="promo3.jpg">
+                    <div class="tap-hint">VER PREÇO</div>
+                </a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
+                    <img src="promo4.jpg">
+                    <div class="tap-hint">VER PREÇO</div>
+                </a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
+                    <img src="promo5.jpg">
+                    <div class="tap-hint">VER PREÇO</div>
+                </a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
+                    <img src="promo6.jpg">
+                    <div class="tap-hint">VER PREÇO</div>
+                </a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
+                    <img src="promo7.jpg">
+                    <div class="tap-hint">VER PREÇO</div>
+                </a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo2.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo3.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo4.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo5.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo6.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo7.jpg"><div class="tap-hint">VER PREÇO</div></a>
             </div>
         </div>
 
-        <p style="font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.5); margin-top: 10px;">JÁ SOMOS + DE 50 MIL MEMBROS!</p>
-
-        <div class="author-section">
-            <img src="logo.jpg" alt="Laís" class="author-img" onerror="this.style.display='none'">
-            <div class="author-text">
-                <strong>Admin: Laís</strong><br>
-                "Eu filtro pessoalmente as ofertas para você não cair em golpe."
-            </div>
-        </div>
+        <div class="social-proof">JÁ SOMOS + DE 50 MIL MEMBROS!</div>
 
         <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
-            Prefiro entrar pelo Telegram
+            Tenho Telegram? Clique aqui
         </a>
 
-        <div style="margin-top: 40px; font-size: 10px; opacity: 0.8;">
-            Todos os Direitos Reservados | Achei Barato Oficial
+        <div style="margin-top: 30px; font-size: 10px; opacity: 0.7;">
+            © 2025 Achei Barato | Todos os direitos reservados
         </div>
 
     </div>
 
     <div id="toast" class="notify-toast">
-        <div class="online-dot"></div>
+        <div class="dot"></div>
         <span id="toast-text">BRUNA ENTROU NO GRUPO</span>
     </div>
 
     <script>
-        // 1. GEO-LOCALIZAÇÃO SIMPLES (Visual de Sistema)
-        fetch('https://get.geojs.io/v1/ip/geo.json')
-            .then(res => res.json())
-            .then(data => {
-                if(data.city) {
-                    document.getElementById('geo-loc').innerText = `🌎 ACESSO LIBERADO: ${data.city.toUpperCase()}`;
-                } else {
-                    document.getElementById('geo-loc').innerText = "🌎 ACESSO LIBERADO: BRASIL";
-                }
-            });
-
-        // 2. VAGAS DIMINUINDO (Pressão Psicológica)
+        // VAGAS DIMINUINDO
         let vagas = 19;
         const vagasEl = document.getElementById('vagas');
         
         setInterval(() => {
-            if(vagas > 2) {
-                // Chance aleatória de diminuir
-                if(Math.random() > 0.6) {
+            if(vagas > 3) {
+                if(Math.random() > 0.7) {
                     vagas--;
                     vagasEl.innerText = vagas;
-                    if(vagas < 5) vagasEl.style.color = "#ffff00"; // Fica amarelo no final
+                    if(vagas < 10) vagasEl.style.color = "#fff"; // Muda cor se precisar
                 }
             }
-        }, 3500);
+        }, 2500);
 
-        // 3. NOTIFICAÇÃO FLUTUANTE
+        // NOTIFICAÇÃO FLUTUANTE
         const names = ["BRUNA", "CARLA", "ANA", "JULIA", "PATRICIA", "FERNANDA", "MARIA", "ALINE", "JOÃO", "PEDRO"];
         const toast = document.getElementById('toast');
         const toastText = document.getElementById('toast-text');
@@ -231,13 +222,13 @@
         function showToast() {
             const name = names[Math.floor(Math.random() * names.length)];
             toastText.innerText = `${name} ENTROU NO GRUPO`;
-            toast.style.transform = "translateY(0)";
+            toast.style.transform = "translateX(-50%) translateY(0)";
             
             setTimeout(() => {
-                toast.style.transform = "translateY(100px)";
+                toast.style.transform = "translateX(-50%) translateY(100px)";
             }, 3000);
         }
-        setInterval(showToast, 6000);
+        setInterval(showToast, 5000);
 
     </script>
 
