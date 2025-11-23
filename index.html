@@ -20,7 +20,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; -webkit-tap-highlight-color: transparent; }
         
         body {
-            /* DEGRADÊ AGRESSIVO */
+            /* DEGRADÊ FUNDO */
             background: linear-gradient(180deg, #ff69b4 0%, #ff4500 100%);
             min-height: 100vh; display: flex; flex-direction: column; 
             align-items: center; color: white; 
@@ -41,33 +41,42 @@
         }
 
         /* HEADER */
-        .header-section { margin-top: 20px; text-align: center; width: 100%; padding: 0 15px; }
+        .header-section { margin-top: 25px; text-align: center; width: 100%; padding: 0 15px; display: flex; flex-direction: column; align-items: center; }
         
         /* LOGO REDONDA */
         .avatar-img {
-            width: 90px; height: 90px; border-radius: 50%; 
+            width: 100px; height: 100px; border-radius: 50%; 
             border: 4px solid #adff2f; object-fit: cover;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2); background: white;
         }
         
-        /* LINK DO @ */
+        /* LINK DO @ (POSICIONADO CORRETAMENTE) */
         .handle-link {
-            font-size: 12px; font-weight: 700; margin-top: 5px; 
+            font-size: 14px; font-weight: 700; margin-top: 8px; 
             color: #fff; text-decoration: none; display: inline-block;
-            background: rgba(0,0,0,0.1); padding: 4px 12px; border-radius: 20px;
+            background: rgba(0,0,0,0.15); padding: 5px 15px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         /* TEXTOS */
         h1 { 
-            font-size: 18px; font-weight: 900; margin: 15px 0 5px 0; 
+            font-size: 19px; font-weight: 900; margin: 20px 0 5px 0; 
             text-transform: uppercase; text-shadow: 0 2px 2px rgba(0,0,0,0.2);
             line-height: 1.3;
         }
+        
+        /* AVISO DE SEGURANÇA (NOVO) */
+        .security-alert {
+            font-size: 11px; font-weight: 900; color: #fff; background: #000;
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 15px;
+            text-transform: uppercase; display: inline-block; border: 1px solid #adff2f;
+        }
+
         h2 { font-size: 14px; margin-bottom: 15px; font-weight: 700; color: #ffe4e1; }
 
         /* CAIXA CINZA */
         .vagas-box {
-            background: #dcdcdc; color: #000; width: 90%; padding: 10px;
+            background: #dcdcdc; color: #000; width: 90%; padding: 12px;
             border-radius: 6px; margin: 0 auto 15px auto; font-weight: 700; font-size: 13px;
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); text-align: center;
             border: 1px solid #fff;
@@ -75,44 +84,51 @@
         
         /* CONTADOR */
         .counter-area { margin: 10px 0 20px 0; text-align: center; }
-        .counter-label { font-size: 12px; font-weight: 900; color: #fff; text-transform: uppercase; display: block; }
+        .counter-label { font-size: 13px; font-weight: 900; color: #fff; text-transform: uppercase; display: block; }
         .counter-number { 
             font-size: 80px; font-weight: 900; color: #adff2f; 
             line-height: 0.9; letter-spacing: -4px; text-shadow: 3px 3px 0px #000;
             margin: 5px 0; display: block;
         }
 
-        /* BOTÃO NEON (Com ícone) */
+        /* BOTÃO NEON (Com ícone e texto ajustado) */
         .btn-neon {
             background: #adff2f; color: #000; text-decoration: none;
             width: 90%; padding: 15px 10px; border-radius: 12px;
-            font-size: 20px; font-weight: 900; text-transform: uppercase;
+            font-size: 21px; font-weight: 900; text-transform: uppercase;
             box-shadow: 0 6px 0 #5fa822, 0 15px 20px rgba(0,0,0,0.25);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             animation: pulse 1.2s infinite; margin: 0 auto;
             border: 3px solid white; position: relative;
         }
-        .btn-content { display: flex; align-items: center; gap: 8px; }
+        .btn-content { display: flex; align-items: center; gap: 10px; }
         .btn-neon:active { transform: translateY(4px); box-shadow: 0 2px 0 #5fa822; }
-        .btn-sub { font-size: 10px; margin-top: 2px; font-weight: 700; opacity: 0.8; }
-        .icon-wa { width: 24px; height: 24px; }
+        .btn-sub { font-size: 11px; margin-top: 4px; font-weight: 700; opacity: 0.85; }
+        .icon-wa { width: 26px; height: 26px; }
 
-        /* TELEGRAM (Logo abaixo) */
+        /* TELEGRAM */
         .btn-telegram { 
             color: white; text-decoration: underline; font-size: 13px; 
             margin-top: 20px; display: block; font-weight: 600; cursor: pointer;
         }
 
-        /* CARROSSEL (Centralizado) */
-        .carousel-wrapper { width: 100%; overflow: hidden; margin-top: 30px; text-align: center; }
-        .carousel-title { 
-            font-size: 11px; font-weight: 900; background: #fff; color: #ff4500; 
-            display: inline-block; padding: 4px 12px; border-radius: 20px; 
-            margin: 0 auto 15px auto; /* Margem auto centraliza */
-            transform: rotate(-2deg); box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        /* CARROSSEL (CORRIGIDO O CORTE DA FRASE) */
+        .carousel-wrapper { width: 100%; overflow: hidden; margin-top: 35px; text-align: center; }
+        
+        .carousel-title-box {
+            background: #fff; color: #ff4500; display: inline-block;
+            padding: 8px 20px; /* Mais espaço interno */
+            border-radius: 30px; margin: 0 auto 15px auto;
+            transform: rotate(-2deg); box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 2px dashed #ff4500;
         }
         
-        .carousel-track { display: flex; width: calc(100px * 14); animation: scroll 20s linear infinite; }
+        .carousel-title { 
+            font-size: 12px; font-weight: 900; text-transform: uppercase; 
+            line-height: 1.2; /* Evita corte vertical */
+        }
+        
+        .carousel-track { display: flex; width: calc(100px * 14); animation: scroll 25s linear infinite; }
         
         a.carousel-item { 
             display: block; text-decoration: none; width: 90px; height: 90px; 
@@ -139,8 +155,9 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase;
             z-index: 100; display: flex; align-items: center; gap: 8px;
             border: 2px solid #fff; transform: translateX(150%); transition: transform 0.5s;
+            text-align: left; line-height: 1.2;
         }
-        .dot { width: 8px; height: 8px; background: #00c853; border-radius: 50%; animation: blink 1s infinite; }
+        .dot { width: 8px; height: 8px; background: #00c853; border-radius: 50%; animation: blink 1s infinite; flex-shrink: 0; }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-100px * 7)); } }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
@@ -157,9 +174,12 @@
         <div class="header-section">
             <img src="logo.jpg" alt="Achei Barato" class="avatar-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3144/3144456.png'">
             
-            <a href="https://whats.ly/acheibaratofc" class="handle-link">@acheibaratofc</a>
+            <a href="https://whats.ly/acheibaratofc" target="_blank" class="handle-link">@acheibaratofc</a>
             
-            <h1>NÃO PERCA MAIS AS MELHORES PROMOÇÕES E BUGS</h1>
+            <h1>NÃO PERCA MAIS AS MELHORES PROMOÇÕES E BUGS DA <span style="color: #ffe4e1; text-decoration: underline;">SHOPEE, MERCADO LIVRE E AMAZON</span></h1>
+            
+            <div class="security-alert">⚠️ No grupo enviamos somente links oficiais</div>
+            
             <h2>RECEBA TUDO NO SEU WHATSAPP</h2>
         </div>
 
@@ -186,7 +206,10 @@
         </a>
 
         <div class="carousel-wrapper">
-            <div class="carousel-title">👇 VEJA O QUE JÁ POSTAMOS HOJE 👇</div>
+            <div class="carousel-title-box">
+                <div class="carousel-title">👇 VEJA O QUE JÁ POSTAMOS HOJE 👇</div>
+            </div>
+            
             <div class="carousel-container">
                 <div class="carousel-track">
                     <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
@@ -217,7 +240,7 @@
 
     <div id="toast" class="notify-toast">
         <div class="dot"></div>
-        <span id="toast-text">...</span>
+        <span id="toast-text">BRUNA ENTROU NO GRUPO</span>
     </div>
 
     <script>
@@ -230,7 +253,7 @@
                 if(Math.random() > 0.6) {
                     vagas--;
                     vagasEl.innerText = vagas;
-                    if(vagas < 5) vagasEl.style.color = "#ffff00"; 
+                    if(vagas < 5) vagasEl.style.color = "#fff"; 
                 }
             }
         }, 2800);
