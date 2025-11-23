@@ -16,123 +16,154 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
+        /* RESET BÁSICO */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; -webkit-tap-highlight-color: transparent; }
         
         body {
-            /* DEGRADÊ AGRESSIVO (ROSA PARA LARANJA) - GATILHO DE PROMOÇÃO */
+            /* DEGRADÊ FUNDO (IGUAL REFERÊNCIA) */
             background: linear-gradient(180deg, #ff69b4 0%, #ff4500 100%);
-            min-height: 100vh; display: flex; flex-direction: column; align-items: center;
-            color: white; text-align: center; padding: 20px 15px 80px 15px;
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            color: white; 
+            overflow-x: hidden; /* Evita rolagem lateral */
         }
 
-        /* LOGO/AVATAR */
-        .header-avatar {
-            margin-bottom: 10px;
+        /* A CAIXA MÁGICA (CORRIGE O LAYOUT NO PC E CELULAR) */
+        .main-container {
+            width: 100%;
+            max-width: 480px; /* Trava a largura para parecer app */
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
         }
+
+        /* BARRA TOPO */
+        .top-bar {
+            width: 100%; background: #70c040; padding: 12px; text-align: center;
+            font-size: 13px; font-weight: 900; color: #0c3800; text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* LOGO E HEADER */
+        .header-section { margin-top: 20px; text-align: center; width: 100%; padding: 0 15px; }
+        
         .avatar-img {
-            width: 90px; height: 90px; border-radius: 50%; 
-            border: 4px solid #adff2f; /* Borda Verde Neon */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); object-fit: cover;
+            width: 85px; height: 85px; border-radius: 50%; 
+            border: 4px solid #adff2f; object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* TEXTOS (TÍTULO MENOR PARA DAR ESPAÇO AO BOTÃO) */
+        /* TEXTOS */
         h1 { 
-            font-size: 18px; font-weight: 900; margin-bottom: 15px; 
+            font-size: 18px; font-weight: 900; margin: 15px 0 5px 0; 
             text-transform: uppercase; text-shadow: 0 2px 2px rgba(0,0,0,0.2);
-            line-height: 1.3; max-width: 90%;
+            line-height: 1.3;
         }
-        
-        /* CAIXA DE VAGAS (O DESTAQUE) */
-        .vagas-container {
-            background: rgba(0,0,0,0.15); border-radius: 15px; padding: 15px;
-            width: 100%; max-width: 400px; margin-bottom: 20px; border: 2px solid rgba(255,255,255,0.3);
-        }
-        
-        .vagas-text { font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
-        
-        .counter { 
-            font-size: 65px; font-weight: 900; color: #adff2f; /* Verde Neon */
-            line-height: 0.9; letter-spacing: -2px; text-shadow: 2px 2px 0px #000;
+        h2 { 
+            font-size: 14px; margin-bottom: 15px; font-weight: 700; color: #ffe4e1;
         }
 
-        /* BOTÃO GIGANTE (O REI DA TELA) */
+        /* CAIXA CINZA DE VAGAS (REFERÊNCIA) */
+        .vagas-box {
+            background: #dcdcdc; color: #000; width: 90%; padding: 10px;
+            border-radius: 6px; margin: 0 auto 15px auto; font-weight: 700; font-size: 13px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); text-align: center;
+            border: 1px solid #fff;
+        }
+        
+        /* CONTADOR GIGANTE */
+        .counter-area { margin: 10px 0 20px 0; text-align: center; }
+        .counter-label { font-size: 12px; font-weight: 900; color: #fff; text-transform: uppercase; display: block; }
+        .counter-number { 
+            font-size: 80px; font-weight: 900; color: #adff2f; /* Verde Neon */
+            line-height: 0.9; letter-spacing: -4px; text-shadow: 3px 3px 0px #000;
+            margin: 5px 0; display: block;
+        }
+
+        /* BOTÃO NEON GIGANTE */
         .btn-neon {
             background: #adff2f; color: #000; text-decoration: none;
-            width: 100%; max-width: 400px; padding: 20px 10px; border-radius: 12px;
-            font-size: 22px; font-weight: 900; text-transform: uppercase;
-            box-shadow: 0 6px 0 #5fa822, 0 15px 20px rgba(0,0,0,0.2);
-            display: block; animation: pulse 1.2s infinite;
-            border: 3px solid white; position: relative; overflow: hidden;
+            width: 90%; padding: 20px 10px; border-radius: 10px;
+            font-size: 20px; font-weight: 900; text-transform: uppercase;
+            box-shadow: 0 6px 0 #5fa822, 0 15px 20px rgba(0,0,0,0.25);
+            display: flex; flex-direction: column; align-items: center;
+            animation: pulse 1.2s infinite; margin: 0 auto;
+            border: 2px solid #fff;
         }
         .btn-neon:active { transform: translateY(4px); box-shadow: 0 2px 0 #5fa822; }
-        .btn-sub { display: block; font-size: 10px; margin-top: 5px; font-weight: 700; opacity: 0.8; }
+        .btn-sub { font-size: 10px; margin-top: 5px; font-weight: 700; opacity: 0.8; }
 
-        /* CARROSSEL (VITRINE ARMADILHA) */
+        /* CARROSSEL (LINK TRAP) */
+        .carousel-wrapper { width: 100%; overflow: hidden; margin-top: 30px; }
         .carousel-title { 
-            font-size: 12px; font-weight: 900; background: #fff; color: #ff4500; 
-            display: inline-block; padding: 4px 10px; border-radius: 4px; 
-            margin: 25px 0 10px 0; text-transform: uppercase; transform: rotate(-2deg);
+            font-size: 11px; font-weight: 900; background: #fff; color: #ff4500; 
+            display: inline-block; padding: 4px 12px; border-radius: 20px; 
+            margin-bottom: 10px; transform: rotate(-2deg); box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-
-        .carousel-container { width: 100%; overflow: hidden; padding: 5px 0; }
-        .carousel-track { display: flex; width: calc(110px * 14); animation: scroll 25s linear infinite; }
         
-        /* FOTO CLICÁVEL */
+        .carousel-track { display: flex; width: calc(100px * 14); animation: scroll 20s linear infinite; }
+        
         a.carousel-item { 
-            display: block; text-decoration: none; width: 100px; height: 100px; 
-            margin: 0 5px; border-radius: 10px; overflow: hidden; 
-            border: 2px solid white; background: white; position: relative;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            display: block; text-decoration: none; width: 90px; height: 90px; 
+            margin: 0 4px; border-radius: 8px; overflow: hidden; 
+            border: 2px solid white; background: white; position: relative; flex-shrink: 0;
         }
         .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
         
         .tap-hint {
             position: absolute; bottom: 0; left: 0; width: 100%; 
-            background: rgba(0,0,0,0.8); color: #adff2f; font-size: 9px; 
-            font-weight: 700; padding: 3px 0; text-transform: uppercase;
+            background: rgba(0,0,0,0.8); color: #adff2f; font-size: 8px; 
+            font-weight: 700; padding: 2px 0; text-transform: uppercase; text-align: center;
         }
 
-        /* PROVA SOCIAL */
-        .social-proof { margin-top: 20px; font-size: 12px; font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,0.3); }
+        /* FOOTER */
+        .social-proof { margin-top: 25px; font-size: 12px; font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,0.3); }
+        .btn-telegram { color: white; text-decoration: underline; font-size: 12px; margin-top: 20px; display: block; font-weight: 600; }
+        .copyright { margin-top: 30px; font-size: 9px; opacity: 0.7; }
 
-        /* TELEGRAM */
-        .btn-telegram { 
-            color: white; text-decoration: underline; font-size: 13px; 
-            margin-top: 20px; display: block; font-weight: 600;
-        }
-
-        /* NOTIFICAÇÃO RODAPÉ */
+        /* NOTIFICAÇÃO FLUTUANTE */
         .notify-toast {
-            position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%) translateY(100px);
-            background: #fff; color: #000; padding: 8px 20px; width: 90%; max-width: 350px;
-            border-radius: 50px; font-weight: 800; font-size: 12px;
+            position: fixed; bottom: 20px; right: 20px;
+            background: #adff2f; color: #000; padding: 8px 15px;
+            border-radius: 4px; font-weight: 900; font-size: 11px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase;
-            z-index: 100; display: flex; align-items: center; justify-content: center; gap: 8px;
-            transition: transform 0.5s; border: 2px solid #adff2f;
+            z-index: 100; display: flex; align-items: center; gap: 8px;
+            border: 2px solid #fff; transform: translateX(150%); transition: transform 0.5s;
         }
         .dot { width: 8px; height: 8px; background: #00c853; border-radius: 50%; animation: blink 1s infinite; }
 
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-110px * 7)); } }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-100px * 7)); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
         @keyframes blink { 50% { opacity: 0; } }
 
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="top-bar">PARTICIPE DO GRUPO DE FORMA GRATUITA</div>
+
+    <div class="main-container">
         
-        <div class="header-avatar">
+        <div class="header-section">
             <img src="logo.jpg" alt="Laís" class="avatar-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
-            <div style="font-size: 11px; font-weight: 700; margin-top: 5px;">@acheibaratofc</div>
+            <div style="font-size: 10px; font-weight: 700; margin-top: 5px; color: #fff;">@acheibaratofc</div>
+            
+            <h1>NÃO PERCA MAIS AS MELHORES PROMOÇÕES E BUGS</h1>
+            <h2>RECEBA TUDO NO SEU WHATSAPP</h2>
         </div>
 
-        <h1>Não perca as Melhores Promoções e Bugs da Shopee</h1>
-        
-        <div class="vagas-container">
-            <div class="vagas-text">Grupo VIP 03 - Restam apenas:</div>
-            <div class="counter"><span id="vagas">19</span> VAGAS</div>
-            <div style="font-size: 10px; margin-top: 5px; opacity: 0.8;">(Atualizado agora em tempo real)</div>
+        <div class="vagas-box">
+            GRUPO VIP 03: Vagas limitadas!
+        </div>
+
+        <div class="counter-area">
+            <span class="counter-label">RESTAM APENAS</span>
+            <span class="counter-number" id="vagas">19</span>
+            <span class="counter-label">VAGAS</span>
         </div>
 
         <a href="https://whats.ly/acheibaratofc" class="btn-neon" target="_blank" rel="noopener noreferrer" onclick="if(navigator.vibrate) navigator.vibrate(50)">
@@ -140,45 +171,25 @@
             <span class="btn-sub">CLIQUE AQUI - É 100% GRÁTIS</span>
         </a>
 
-        <div class="carousel-title">👇 Veja o que já postamos hoje 👇</div>
-        
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
-                    <img src="promo1.jpg">
-                    <div class="tap-hint">VER PREÇO</div>
-                </a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
-                    <img src="promo2.jpg">
-                    <div class="tap-hint">VER PREÇO</div>
-                </a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
-                    <img src="promo3.jpg">
-                    <div class="tap-hint">VER PREÇO</div>
-                </a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
-                    <img src="promo4.jpg">
-                    <div class="tap-hint">VER PREÇO</div>
-                </a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
-                    <img src="promo5.jpg">
-                    <div class="tap-hint">VER PREÇO</div>
-                </a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
-                    <img src="promo6.jpg">
-                    <div class="tap-hint">VER PREÇO</div>
-                </a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item">
-                    <img src="promo7.jpg">
-                    <div class="tap-hint">VER PREÇO</div>
-                </a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo2.jpg"><div class="tap-hint">VER PREÇO</div></a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo3.jpg"><div class="tap-hint">VER PREÇO</div></a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo4.jpg"><div class="tap-hint">VER PREÇO</div></a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo5.jpg"><div class="tap-hint">VER PREÇO</div></a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo6.jpg"><div class="tap-hint">VER PREÇO</div></a>
-                <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo7.jpg"><div class="tap-hint">VER PREÇO</div></a>
+        <div class="carousel-wrapper">
+            <div class="carousel-title">👇 VEJA O QUE JÁ POSTAMOS HOJE 👇</div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo2.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo3.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo4.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo5.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo6.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo7.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo2.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo3.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo4.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo5.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo6.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo7.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                </div>
             </div>
         </div>
 
@@ -188,8 +199,8 @@
             Tenho Telegram? Clique aqui
         </a>
 
-        <div style="margin-top: 30px; font-size: 10px; opacity: 0.7;">
-            © 2025 Achei Barato | Todos os direitos reservados
+        <div class="copyright">
+            Todos os Direitos Reservados | Achei Barato Oficial
         </div>
 
     </div>
@@ -200,21 +211,21 @@
     </div>
 
     <script>
-        // VAGAS DIMINUINDO
+        // VAGAS
         let vagas = 19;
         const vagasEl = document.getElementById('vagas');
         
         setInterval(() => {
-            if(vagas > 3) {
-                if(Math.random() > 0.7) {
+            if(vagas > 2) {
+                if(Math.random() > 0.6) {
                     vagas--;
                     vagasEl.innerText = vagas;
-                    if(vagas < 10) vagasEl.style.color = "#fff"; // Muda cor se precisar
+                    if(vagas < 5) vagasEl.style.color = "#fff"; 
                 }
             }
-        }, 2500);
+        }, 2800);
 
-        // NOTIFICAÇÃO FLUTUANTE
+        // TOAST
         const names = ["BRUNA", "CARLA", "ANA", "JULIA", "PATRICIA", "FERNANDA", "MARIA", "ALINE", "JOÃO", "PEDRO"];
         const toast = document.getElementById('toast');
         const toastText = document.getElementById('toast-text');
@@ -222,14 +233,13 @@
         function showToast() {
             const name = names[Math.floor(Math.random() * names.length)];
             toastText.innerText = `${name} ENTROU NO GRUPO`;
-            toast.style.transform = "translateX(-50%) translateY(0)";
+            toast.style.transform = "translateX(0)";
             
             setTimeout(() => {
-                toast.style.transform = "translateX(-50%) translateY(100px)";
+                toast.style.transform = "translateX(150%)";
             }, 3000);
         }
-        setInterval(showToast, 5000);
-
+        setInterval(showToast, 5500);
     </script>
 
 </body>
