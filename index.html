@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Oferta Liberada - Processador Philco</title>
+    <title>VAGAS ABERTAS - ENTRE AGORA</title>
     
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -13,160 +13,278 @@
         })(window, document, "clarity", "script", "u9pht0namf");
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary: #2563eb; --success: #16a34a; --danger: #dc2626; --bg: #f8fafc; --text: #1e293b; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        /* RESET BÁSICO */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; -webkit-tap-highlight-color: transparent; }
         
-        body { 
-            background-color: var(--bg); 
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px); background-size: 20px 20px;
-            display: flex; flex-direction: column; align-items: center; min-height: 100vh; 
-            padding: 0 15px 100px 15px; color: var(--text);
+        body {
+            /* DEGRADÊ FUNDO */
+            background: linear-gradient(180deg, #ff69b4 0%, #ff4500 100%);
+            min-height: 100vh; display: flex; flex-direction: column; 
+            align-items: center; color: white; 
+            overflow-x: hidden; padding-bottom: 50px;
         }
 
-        /* TIMER */
-        .timer-bar {
-            background: #FEF3C7; color: #92400E; width: 100%; text-align: center; padding: 10px; 
-            font-size: 12px; font-weight: 800; border-bottom: 2px solid #FCD34D; 
-            position: fixed; top: 0; z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        /* CONTÊINER CENTRAL */
+        .main-container {
+            width: 100%; max-width: 480px;
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        .container {
-            background: white; width: 100%; max-width: 420px; padding: 25px; 
-            border-radius: 24px; box-shadow: 0 20px 40px -5px rgba(0,0,0,0.1); 
-            text-align: center; margin-top: 60px; border: 1px solid #e2e8f0;
+        /* BARRA TOPO */
+        .top-bar {
+            width: 100%; background: #70c040; padding: 10px; text-align: center;
+            font-size: 12px; font-weight: 900; color: #0c3800; text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* GEO TAG */
-        .geo-tag {
-            display: inline-block; background: #eff6ff; color: var(--primary); 
-            padding: 6px 12px; border-radius: 50px; font-size: 11px; font-weight: 800; 
-            text-transform: uppercase; margin-bottom: 15px; border: 1px solid #bfdbfe;
-            animation: pulse 2s infinite;
+        /* HEADER */
+        .header-section { margin-top: 25px; text-align: center; width: 100%; padding: 0 15px; display: flex; flex-direction: column; align-items: center; }
+        
+        /* LOGO REDONDA */
+        .avatar-img {
+            width: 100px; height: 100px; border-radius: 50%; 
+            border: 4px solid #adff2f; object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); background: white;
         }
-
-        /* HERO PRODUTO */
-        .product-hero { position: relative; margin-bottom: 20px; }
-        .product-img { 
-            width: 100%; max-width: 280px; height: auto; border-radius: 16px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 1px solid #eee;
-        }
-        .discount-badge {
-            position: absolute; top: -10px; right: 10px; 
-            background: var(--danger); color: white; padding: 8px 12px; 
-            border-radius: 8px; font-weight: 900; font-size: 14px; 
-            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4); transform: rotate(5deg);
+        
+        /* LINK DO @ (POSICIONADO CORRETAMENTE) */
+        .handle-link {
+            font-size: 14px; font-weight: 700; margin-top: 8px; 
+            color: #fff; text-decoration: none; display: inline-block;
+            background: rgba(0,0,0,0.15); padding: 5px 15px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
         /* TEXTOS */
-        h1 { font-size: 22px; line-height: 1.2; margin-bottom: 10px; color: #0f172a; font-weight: 900; }
-        .price-box { margin: 15px 0; }
-        .old-price { color: #94a3b8; text-decoration: line-through; font-size: 14px; font-weight: 500; }
-        .new-price { color: var(--success); font-size: 32px; font-weight: 900; letter-spacing: -1px; }
+        h1 { 
+            font-size: 19px; font-weight: 900; margin: 20px 0 5px 0; 
+            text-transform: uppercase; text-shadow: 0 2px 2px rgba(0,0,0,0.2);
+            line-height: 1.3;
+        }
         
-        .alert-text { 
-            background: #fff1f2; color: #9f1239; padding: 12px; border-radius: 8px; 
-            font-size: 13px; line-height: 1.4; margin-bottom: 20px; border: 1px solid #fecdd3;
+        /* AVISO DE SEGURANÇA (NOVO) */
+        .security-alert {
+            font-size: 11px; font-weight: 900; color: #fff; background: #000;
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 15px;
+            text-transform: uppercase; display: inline-block; border: 1px solid #adff2f;
         }
 
-        /* BOTÃO WHATSAPP COM ÍCONE */
-        .btn-whatsapp { 
-            background: var(--success); color: white; text-decoration: none; 
-            padding: 18px; border-radius: 16px; font-size: 16px; font-weight: 800; 
-            display: flex; align-items: center; justify-content: center; width: 100%; 
-            box-shadow: 0 8px 0 #14532d; margin-bottom: 15px; position: relative; overflow: hidden;
-            text-transform: uppercase; transition: transform 0.1s;
-            gap: 10px; /* Espaço entre ícone e texto */
+        h2 { font-size: 14px; margin-bottom: 15px; font-weight: 700; color: #ffe4e1; }
+
+        /* CAIXA CINZA */
+        .vagas-box {
+            background: #dcdcdc; color: #000; width: 90%; padding: 12px;
+            border-radius: 6px; margin: 0 auto 15px auto; font-weight: 700; font-size: 13px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); text-align: center;
+            border: 1px solid #fff;
         }
-        .btn-whatsapp:active { transform: translateY(4px); box-shadow: none; }
-        .btn-whatsapp svg { width: 24px; height: 24px; fill: white; } /* Estilo do ícone */
         
-        .btn-whatsapp::after {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 3s infinite;
+        /* CONTADOR */
+        .counter-area { margin: 10px 0 20px 0; text-align: center; }
+        .counter-label { font-size: 13px; font-weight: 900; color: #fff; text-transform: uppercase; display: block; }
+        .counter-number { 
+            font-size: 80px; font-weight: 900; color: #adff2f; 
+            line-height: 0.9; letter-spacing: -4px; text-shadow: 3px 3px 0px #000;
+            margin: 5px 0; display: block;
         }
 
+        /* BOTÃO NEON (Com ícone e texto ajustado) */
+        .btn-neon {
+            background: #adff2f; color: #000; text-decoration: none;
+            width: 90%; padding: 15px 10px; border-radius: 12px;
+            font-size: 21px; font-weight: 900; text-transform: uppercase;
+            box-shadow: 0 6px 0 #5fa822, 0 15px 20px rgba(0,0,0,0.25);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            animation: pulse 1.2s infinite; margin: 0 auto;
+            border: 3px solid white; position: relative;
+        }
+        .btn-content { display: flex; align-items: center; gap: 10px; }
+        .btn-neon:active { transform: translateY(4px); box-shadow: 0 2px 0 #5fa822; }
+        .btn-sub { font-size: 11px; margin-top: 4px; font-weight: 700; opacity: 0.85; }
+        .icon-wa { width: 26px; height: 26px; }
+
+        /* TELEGRAM */
         .btn-telegram { 
-            color: var(--primary); font-size: 13px; font-weight: 600; 
-            text-decoration: underline; cursor: pointer; display: block; margin-bottom: 20px;
+            color: white; text-decoration: underline; font-size: 13px; 
+            margin-top: 20px; display: block; font-weight: 600; cursor: pointer;
         }
 
-        /* AUTHOR BOX */
-        .author-box { 
-            display: flex; align-items: center; background: white; 
-            padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: left; gap: 12px; 
+        /* CARROSSEL (CORRIGIDO O CORTE DA FRASE) */
+        .carousel-wrapper { width: 100%; overflow: hidden; margin-top: 35px; text-align: center; }
+        
+        .carousel-title-box {
+            background: #fff; color: #ff4500; display: inline-block;
+            padding: 8px 20px; /* Mais espaço interno */
+            border-radius: 30px; margin: 0 auto 15px auto;
+            transform: rotate(-2deg); box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 2px dashed #ff4500;
         }
-        .author-img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
-        .author-text p { font-size: 11px; color: #64748b; line-height: 1.3; margin: 0; }
+        
+        .carousel-title { 
+            font-size: 12px; font-weight: 900; text-transform: uppercase; 
+            line-height: 1.2; /* Evita corte vertical */
+        }
+        
+        .carousel-track { display: flex; width: calc(100px * 14); animation: scroll 25s linear infinite; }
+        
+        /* NOVO: LINK TRAP (ITENS SÃO LINKS) */
+        a.carousel-item { 
+            display: block; text-decoration: none; width: 90px; height: 90px; 
+            margin: 0 4px; border-radius: 8px; overflow: hidden; 
+            border: 2px solid white; background: white; position: relative; flex-shrink: 0;
+            cursor: pointer;
+        }
+        .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
+        
+        /* Dica "Ver Preço" em cima da foto */
+        .tap-hint {
+            position: absolute; bottom: 0; left: 0; width: 100%; 
+            background: rgba(0,0,0,0.8); color: #adff2f; font-size: 8px; 
+            font-weight: 700; padding: 2px 0; text-transform: uppercase; text-align: center;
+        }
 
-        .footer { margin-top: 30px; font-size: 10px; color: #cbd5e1; }
+        /* FOOTER */
+        .social-proof { margin-top: 30px; font-size: 12px; font-weight: 700; text-shadow: 0 1px 1px rgba(0,0,0,0.3); text-align: center; }
+        .copyright { margin-top: 30px; font-size: 9px; opacity: 0.7; text-align: center; margin-bottom: 20px; }
 
-        @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        /* NOTIFICAÇÃO */
+        .notify-toast {
+            position: fixed; bottom: 20px; right: 20px;
+            background: #adff2f; color: #000; padding: 10px 15px;
+            border-radius: 4px; font-weight: 900; font-size: 11px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase;
+            z-index: 100; display: flex; align-items: center; gap: 8px;
+            border: 2px solid #fff; transform: translateX(150%); transition: transform 0.5s;
+            text-align: left; line-height: 1.2;
+        }
+        .dot { width: 8px; height: 8px; background: #00c853; border-radius: 50%; animation: blink 1s infinite; flex-shrink: 0; }
+
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-100px * 7)); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        @keyframes blink { 50% { opacity: 0; } }
+
     </style>
 </head>
 <body>
 
-    <div class="timer-bar">OFERTA EXPIRA EM: <span id="timer">05:00</span></div>
+    <div class="top-bar">PARTICIPE DO GRUPO DE FORMA GRATUITA</div>
 
-    <div class="container">
-        <div class="geo-tag" id="geo-loc">Verificando estoque...</div>
-
-        <div class="product-hero">
-            <div class="discount-badge">-82% OFF</div>
-            <img src="processador.webp" alt="Processador Philco" class="product-img">
+    <div class="main-container">
+        
+        <div class="header-section">
+            <img src="logo.jpg" alt="Achei Barato" class="avatar-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3144/3144456.png'">
+            
+            <a href="https://whats.ly/acheibaratofc" target="_blank" class="handle-link">@acheibaratofc</a>
+            
+            <h1>NÃO PERCA MAIS AS MELHORES PROMOÇÕES E BUGS DA <span style="color: #ffe4e1; text-decoration: underline;">SHOPEE, MERCADO LIVRE E AMAZON</span></h1>
+            
+            <div class="security-alert">⚠️ No grupo enviamos somente links oficiais</div>
+            
+            <h2>RECEBA TUDO NO SEU WHATSAPP</h2>
         </div>
 
-        <h1>Processador Philco Inox <br>Original (Vidro)</h1>
-
-        <div class="price-box">
-            <div class="old-price">De R$ 386,00 por</div>
-            <div class="new-price">R$ 71,00</div>
+        <div class="vagas-box">
+            GRUPO VIP 03: Vagas limitadas!
         </div>
 
-        <div class="alert-text">
-            <strong>⚠️ ONDE ESTÁ O LINK?</strong><br>
-            Para proteger a oferta de robôs, o link oficial da Shopee está na <strong>MENSAGEM FIXADA</strong> dentro do nosso Grupo VIP.
+        <div class="counter-area">
+            <span class="counter-label">RESTAM APENAS</span>
+            <span class="counter-number" id="vagas">17</span>
+            <span class="counter-label">VAGAS</span>
         </div>
 
-        <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-            ENTRAR E PEGAR O LINK
+        <a href="https://whats.ly/acheibaratofc" class="btn-neon" target="_blank" rel="noopener noreferrer" onclick="if(navigator.vibrate) navigator.vibrate(50)">
+            <div class="btn-content">
+                <svg class="icon-wa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                ENTRAR NO GRUPO AGORA
+            </div>
+            <span class="btn-sub">CLIQUE AQUI - É 100% SEGURO E GRÁTIS</span>
         </a>
 
         <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
             Prefiro entrar pelo Telegram
         </a>
-
-        <div class="author-box">
-            <img src="eu.png" class="author-img" onerror="this.src='https://cdn-icons-png.flaticon.com/512/4140/4140048.png'">
-            <div class="author-text">
-                <p><strong>Oi, sou a Laís!</strong><br>Garimpei essa oferta direto da Loja Oficial. É seguro e chega rapidinho. Corre pro grupo!</p>
+        
+        <div class="social-proof">JÁ SOMOS + DE 50 MIL MEMBROS!</div>
+        
+        <div class="carousel-wrapper">
+            <div class="carousel-title-box">
+                <div class="carousel-title">👇 VEJA O QUE JÁ POSTAMOS HOJE 👇</div>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo2.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo3.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo4.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo5.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo6.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo7.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo2.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo3.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo4.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo5.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo6.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo7.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                </div>
             </div>
         </div>
 
-        <div class="footer">© 2025 Achei Barato Oficial</div>
+        <div class="copyright">
+            Todos os Direitos Reservados | Achei Barato Oficial
+        </div>
+
+    </div>
+
+    <div id="toast" class="notify-toast">
+        <div class="dot"></div>
+        <span id="toast-text">BRUNA ENTROU NO GRUPO</span>
     </div>
 
     <script>
-        // GEO
-        fetch('https://get.geojs.io/v1/ip/geo.json').then(r=>r.json()).then(d=>{
-            if(d.city) document.getElementById('geo-loc').innerText = `📍 ESTOQUE LIBERADO EM: ${d.city.toUpperCase()}`;
-            else document.getElementById('geo-loc').innerText = "📍 ESTOQUE: ÚLTIMAS UNIDADES";
-        }).catch(()=>document.getElementById('geo-loc').innerText = "📍 ESTOQUE: ÚLTIMAS UNIDADES");
+        // VAGAS DIMINUINDO
+        let vagas = 19;
+        const vagasEl = document.getElementById('vagas');
+        
+        setInterval(() => {
+            if(vagas > 2) {
+                if(Math.random() > 0.6) {
+                    vagas--;
+                    vagasEl.innerText = vagas;
+                    if(vagas < 5) vagasEl.style.color = "#fff"; 
+                }
+            }
+        }, 2800);
 
-        // TIMER
-        let time = 300;
-        if(localStorage.getItem('timer')) time = parseInt(localStorage.getItem('timer'));
-        setInterval(()=>{
-            let m=Math.floor(time/60), s=time%60;
-            document.getElementById('timer').innerText = `0${m}:${s<10?'0'+s:s}`;
-            localStorage.setItem('timer', time);
-            if(time>0) time--; else time=300;
-        }, 1000);
+        // LÓGICA DA NOTIFICAÇÃO (NOME + NÚMERO)
+        const names = ["BRUNA", "CARLA", "ANA", "JULIA", "PATRICIA", "FERNANDA", "MARIA", "ALINE", "JOÃO", "PEDRO"];
+        const ddds = ["11", "21", "31", "41", "51", "61", "71", "81", "91"];
+        
+        const toast = document.getElementById('toast');
+        const toastText = document.getElementById('toast-text');
+
+        function showToast() {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const ddd = ddds[Math.floor(Math.random() * ddds.length)];
+            const num = Math.floor(Math.random() * (9999 - 9100) + 9100);
+            
+            // Ex: BRUNA (11) 98421-**** ENTROU NO GRUPO
+            toastText.innerText = `${name} (${ddd}) ${num}-**** ENTROU NO GRUPO`;
+            
+            toast.style.transform = "translateX(0)";
+            
+            setTimeout(() => {
+                toast.style.transform = "translateX(150%)";
+            }, 3500);
+        }
+        setInterval(showToast, 6000);
+
     </script>
 
 </body>
