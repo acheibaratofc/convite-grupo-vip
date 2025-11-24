@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title id="page-title">Oferta Liberada - Processador Philco</title>
-    <meta name="description" content="Link oficial da promoção do Processador Philco. Entre no grupo para garantir.">
+    <title id="page-title">Oferta Liberada - Comunidade Oficial</title>
+    <meta name="description" content="Link oficial da promoção liberado no grupo.">
     <meta name="theme-color" content="#16a34a">
     
     <meta property="og:type" content="website">
     <meta property="og:title" content="O Link do Processador está aqui ⬇️">
-    <meta property="og:description" content="Toque para entrar no Grupo VIP e pegar a oferta antes que acabe.">
+    <meta property="og:description" content="Toque para entrar no Grupo VIP e pegar a oferta.">
     <meta property="og:image" content="logo.jpg">
     <link rel="canonical" href="https://seusite.com.br">
 
@@ -41,6 +41,7 @@
             --color-white: #ffffff;
             --color-danger: #dc2626;
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --radius-lg: 24px;
             --font-main: 'Inter', sans-serif;
         }
 
@@ -69,7 +70,7 @@
         /* Container */
         .container {
             background: var(--color-white); width: 100%; max-width: 440px; 
-            padding: 32px 24px; border-radius: 24px; 
+            padding: 32px 24px; border-radius: var(--radius-lg); 
             box-shadow: var(--shadow-lg); text-align: center; 
             position: relative; overflow: hidden; margin-top: 60px;
             border: 1px solid rgba(255,255,255,0.8);
@@ -87,17 +88,35 @@
         .geo-tag { 
             padding: 6px 12px; border-radius: 50px; font-weight: 800; font-size: 10px; 
             text-transform: uppercase; display: inline-flex; align-items: center; 
-            background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; /* Vermelho Urgente */
-            animation: pulse-border 2s infinite;
+            line-height: 1.2; max-width: 60%; word-wrap: break-word; text-align: right;
+            transition: all 0.3s ease; animation: pulse-border 2s infinite;
         }
 
-        /* HEADLINE ESPECÍFICA */
+        .style-alert { background: #fff7ed; color: #c2410c; border: 1px solid #fdba74; }
+        .style-urgent { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
+        .style-success { background: #f0fdf4; color: #15803d; border: 1px solid #86efac; }
+        .style-vip { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+
+        /* Logo */
+        .logo-area { margin-bottom: 20px; position: relative; display: inline-block; }
+        .logo-img { 
+            width: 110px; height: 110px; border-radius: 50%; object-fit: cover; 
+            border: 4px solid white; box-shadow: var(--shadow-lg); 
+        }
+        .verified-badge { 
+            position: absolute; bottom: 5px; right: 5px; background: var(--color-primary); 
+            color: white; width: 30px; height: 30px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            border: 3px solid white; font-size: 14px; box-shadow: var(--shadow-sm);
+        }
+
+        /* HEADLINE DIRETA */
         h1 { font-size: 24px; line-height: 1.2; margin-bottom: 12px; color: #0f172a; font-weight: 900; letter-spacing: -0.5px; }
         h1 span { color: var(--color-danger); background: #fef2f2; padding: 0 5px; }
         
         p.subheadline { color: #475569; font-size: 15px; line-height: 1.5; margin-bottom: 24px; font-weight: 500; }
 
-        /* ALERTA AMARELO (Destaque) */
+        /* ALERTA DE LINK */
         .alert-box {
             background: #fffbeb; border: 2px dashed #f59e0b; border-radius: 12px;
             padding: 15px; margin-bottom: 24px; text-align: left;
@@ -111,7 +130,8 @@
             padding: 20px; border-radius: 16px; font-size: 16px; font-weight: 800; 
             display: flex; align-items: center; justify-content: center; 
             box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3); 
-            transition: transform 0.1s; width: 100%; position: relative; overflow: hidden; text-transform: uppercase; 
+            transition: transform 0.1s, box-shadow 0.1s; 
+            width: 100%; position: relative; overflow: hidden; text-transform: uppercase; 
         }
         .btn-whatsapp:active { transform: scale(0.98); }
         .btn-whatsapp::after {
@@ -126,12 +146,6 @@
             text-decoration: none; font-weight: 600; border-bottom: 1px solid transparent; 
             padding: 10px 20px; cursor: pointer;
         }
-
-        /* Carrossel */
-        .carousel-container { width: 100%; overflow: hidden; margin-bottom: 28px; padding: 5px 0; -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-        .carousel-track { display: flex; width: calc(130px * 14); animation: scroll 30s linear infinite; will-change: transform; }
-        .carousel-item { width: 120px; height: 120px; margin: 0 6px; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); flex-shrink: 0; border: 1px solid #e2e8f0; background: white; position: relative; }
-        .carousel-item img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
         /* Author Box */
         .author-box { display: flex; align-items: center; background: #fff1f2; padding: 16px; border-radius: 16px; margin-bottom: 24px; border: 1px solid #fecdd3; text-align: left; gap: 16px; }
@@ -152,7 +166,6 @@
         /* Animações e Flutuantes */
         @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.1); } 100% { opacity: 1; transform: scale(1); } }
         @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-130px * 7)); } }
         @keyframes pulse-border { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
         @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
@@ -186,7 +199,7 @@
             <div class="verified-badge">✓</div>
         </section>
         
-        <h1>Você achou o <br><span>Processador Philco por R$ 71</span></h1>
+        <h1>Você encontrou a <br><span>Oferta do Processador</span></h1>
         <p class="subheadline">Para evitar robôs e revendedores, liberei o link oficial com desconto <strong>apenas dentro do Grupo VIP</strong>.</p>
 
         <div class="alert-box">
@@ -195,7 +208,7 @@
         </div>
 
         <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" onclick="vibratePhone()">
-            <span class="icon-wa">➤</span> ENTRAR E PEGAR PROCESSADOR
+            <span class="icon-wa">➤</span> ENTRAR E PEGAR O LINK
         </a>
 
         <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
@@ -208,23 +221,7 @@
             </div>
             <div class="author-text">
                 <h3>Oi, eu sou a Laís!</h3>
-                <p>Sou mãe e garimpo essas ofertas malucas (como esse processador). O que eu acho pra <strong>minha casa</strong>, compartilho com vocês.</p>
-            </div>
-        </section>
-
-        <div style="margin-bottom: 10px; font-size: 12px; color: #64748b; font-weight: 600;">E MAIS ESSAS OFERTAS LÁ DENTRO:</div>
-        <section class="carousel-container">
-            <div class="carousel-track">
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo1.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo2.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo3.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo4.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo5.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo6.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo1.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo2.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo3.jpg" alt="Promo" loading="lazy"></a>
-                <a href="https://whats.ly/acheibaratofc" class="carousel-item"><img src="promo4.jpg" alt="Promo" loading="lazy"></a>
+                <p>Garimpei essa oferta (e muitas outras) para ajudar você a economizar. O que eu acho pra <strong>minha casa</strong>, eu posto aqui.</p>
             </div>
         </section>
 
@@ -245,11 +242,11 @@
         </footer>
     </main>
 
-    <div id="notify-offer" class="notify-box"><div class="dot blue"></div><span class="n-text">🔥 12 pessoas pegaram o Processador agora</span></div>
+    <div id="notify-offer" class="notify-box"><div class="dot blue"></div><span class="n-text">🔥 12 pessoas pegaram o link agora</span></div>
 
     <div class="sticky-cta" id="sticky-cta">
         <a href="https://whats.ly/acheibaratofc" class="btn-whatsapp" target="_blank" rel="noopener noreferrer" style="font-size: 15px; padding: 14px;" onclick="vibratePhone()">
-            ENTRAR E PEGAR PROMOÇÃO
+            ENTRAR E PEGAR OFERTA
         </a>
     </div>
 
@@ -257,7 +254,7 @@
         <div class="modal-box">
             <div class="close-modal" onclick="closeModal()">×</div>
             <div class="modal-title">ESPERE! 😱</div>
-            <p class="modal-p" style="font-size: 16px;">Você vai perder o <strong>Processador Philco de R$ 71,00</strong>?</p>
+            <p class="modal-p">Você vai perder a oferta do <strong>Processador</strong> e o acesso aos cupons.</p>
             <a href="https://whats.ly/acheibaratofc" class="btn-modal" target="_blank" rel="noopener noreferrer" onclick="vibratePhone()">QUERO O LINK AGORA</a>
         </div>
     </div>
@@ -265,17 +262,39 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. GEO-LOCALIZAÇÃO (Focado em Estoque)
+            // 1. GEO-LOCALIZAÇÃO + ROLETA (Mantida)
+            const cityStrategies = [
+                { class: 'style-success', text: '📍 OFERTA PARA: {CITY}' },
+                { class: 'style-urgent', text: '⚡ VAGAS ABERTAS EM: {CITY}' },
+                { class: 'style-logistics', text: '📦 ENTREGA RÁPIDA EM: {CITY}' },
+                { class: 'style-vip', text: '🔒 ACESSO VIP: {CITY}' },
+                { class: 'style-alert', text: '⚠️ ÚLTIMAS VAGAS: {CITY}' }
+            ];
+            
+            const genericStrategies = [
+                { class: 'style-alert', text: '🔥 OFERTA BOMBANDO NO GRUPO' },
+                { class: 'style-urgent', text: '⚡ VAGAS LIMITADAS HOJE' },
+                { class: 'style-success', text: '📦 PROMOÇÃO DO PROCESSADOR' },
+                { class: 'style-vip', text: '⚠️ GRUPO VIP: VAGAS ABERTAS' }
+            ];
+
             fetch('https://get.geojs.io/v1/ip/geo.json')
                 .then(res => res.json())
                 .then(data => {
                     const geoTag = document.getElementById('geo-loc');
                     if(data.city) {
-                        geoTag.innerText = `📍 ESTOQUE EM: ${data.city.toUpperCase()}`;
-                        geoTag.style.color = "#dc2626"; // Vermelho
-                    } else { geoTag.innerText = "📍 ESTOQUE LIBERADO"; }
+                        const cityName = data.city.toUpperCase();
+                        const randomStrategy = cityStrategies[Math.floor(Math.random() * cityStrategies.length)];
+                        geoTag.className = `geo-tag ${randomStrategy.class}`;
+                        geoTag.innerText = randomStrategy.text.replace('{CITY}', cityName);
+                    } else { throw new Error(); }
                 })
-                .catch(() => document.getElementById('geo-loc').innerText = "📍 ESTOQUE LIBERADO");
+                .catch(() => {
+                    const geoTag = document.getElementById('geo-loc');
+                    const randomGen = genericStrategies[Math.floor(Math.random() * genericStrategies.length)];
+                    geoTag.className = `geo-tag ${randomGen.class}`;
+                    geoTag.innerText = randomGen.text;
+                });
 
             // 2. TIMER
             const timerEl = document.querySelector('#timer');
@@ -308,7 +327,7 @@
             // 4. STICKY BUTTON
             window.addEventListener('scroll', () => {
                 const sticky = document.getElementById('sticky-cta');
-                if (window.scrollY > 300) sticky.style.display = "block";
+                if (window.scrollY > 200) sticky.style.display = "block";
                 else sticky.style.display = "none";
             });
 
@@ -319,6 +338,13 @@
             });
             window.closeModal = function() { modal.style.display = 'none'; }
             window.vibratePhone = function() { if (navigator.vibrate) navigator.vibrate(50); }
+            
+            // 6. CONTADOR ONLINE
+            setInterval(() => {
+               const el = document.getElementById('viewers');
+               let current = parseInt(el.innerText);
+               el.innerText = current + Math.floor(Math.random() * 5) - 2;
+            }, 4000);
         });
     </script>
 </body>
