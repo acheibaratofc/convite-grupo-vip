@@ -130,13 +130,16 @@
         
         .carousel-track { display: flex; width: calc(100px * 14); animation: scroll 25s linear infinite; }
         
+        /* NOVO: LINK TRAP (ITENS SÃO LINKS) */
         a.carousel-item { 
             display: block; text-decoration: none; width: 90px; height: 90px; 
             margin: 0 4px; border-radius: 8px; overflow: hidden; 
             border: 2px solid white; background: white; position: relative; flex-shrink: 0;
+            cursor: pointer;
         }
         .carousel-item img { width: 100%; height: 100%; object-fit: contain; }
         
+        /* Dica "Ver Preço" em cima da foto */
         .tap-hint {
             position: absolute; bottom: 0; left: 0; width: 100%; 
             background: rgba(0,0,0,0.8); color: #adff2f; font-size: 8px; 
@@ -221,6 +224,7 @@
                     <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo5.jpg"><div class="tap-hint">VER PREÇO</div></a>
                     <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo6.jpg"><div class="tap-hint">VER PREÇO</div></a>
                     <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo7.jpg"><div class="tap-hint">VER PREÇO</div></a>
+                    
                     <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo1.jpg"><div class="tap-hint">VER PREÇO</div></a>
                     <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo2.jpg"><div class="tap-hint">VER PREÇO</div></a>
                     <a href="https://whats.ly/acheibaratofc" target="_blank" class="carousel-item"><img src="promo3.jpg"><div class="tap-hint">VER PREÇO</div></a>
@@ -258,7 +262,7 @@
             }
         }, 2800);
 
-        // 5. LÓGICA DA NOTIFICAÇÃO (NOME + NÚMERO)
+        // LÓGICA DA NOTIFICAÇÃO (NOME + NÚMERO)
         const names = ["BRUNA", "CARLA", "ANA", "JULIA", "PATRICIA", "FERNANDA", "MARIA", "ALINE", "JOÃO", "PEDRO"];
         const ddds = ["11", "21", "31", "41", "51", "61", "71", "81", "91"];
         
