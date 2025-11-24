@@ -47,7 +47,7 @@
             animation: pulse 2s infinite;
         }
 
-        /* PRODUTO EM DESTAQUE (A MUDANÇA PRINCIPAL) */
+        /* PRODUTO EM DESTAQUE */
         .product-hero { position: relative; margin-bottom: 20px; }
         .product-img { 
             width: 100%; max-width: 280px; height: auto; border-radius: 16px; 
@@ -89,6 +89,7 @@
         .btn-telegram { 
             color: var(--primary); font-size: 13px; font-weight: 600; 
             text-decoration: underline; cursor: pointer; display: block; margin-bottom: 20px;
+            padding: 10px; /* Mais fácil de clicar */
         }
 
         /* AUTHOR BOX SIMPLIFICADA */
@@ -133,7 +134,7 @@
             RESGATAR MEU PROCESSADOR ➤
         </a>
 
-        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" onclick="event.preventDefault(); window.open(this.href, '_blank');">
+        <a href="https://t.me/+fyTyUFpAiPllMWQx" class="btn-telegram" target="_blank" rel="noopener noreferrer">
             Prefiro entrar pelo Telegram
         </a>
 
